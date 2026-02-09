@@ -106,7 +106,7 @@ async function downloadDaily(page, downloadPath, days) {
   console.log();
 
   // Wait for the portal to load and search for trademark datasets
-  await page.waitForTimeout(3000);
+  await page.waitForNavigation({ waitUntil: 'networkidle2' }).catch(() => {});
 
   console.log('🔍 Finding Daily Applications dataset...');
 
@@ -124,7 +124,7 @@ async function downloadDaily(page, downloadPath, days) {
 
   if (foundDaily) {
     console.log('✅ Found Daily Applications section');
-    await page.waitForTimeout(2000);
+    await sleep(2000);
   }
 
   console.log('📊 Locating recent files...');
@@ -166,7 +166,7 @@ async function downloadDaily(page, downloadPath, days) {
       }
     });
 
-    await page.waitForTimeout(5000);
+    await sleep(5000);
   } else {
     console.log(`✅ Found ${Math.min(downloadLinks.length, days)} files`);
     console.log();
@@ -182,7 +182,7 @@ async function downloadDaily(page, downloadPath, days) {
         timeout: 60000,
       });
 
-      await page.waitForTimeout(2000);
+      await sleep(2000);
     }
   }
 
@@ -201,7 +201,7 @@ async function downloadAnnual(page, downloadPath) {
   });
 
   console.log('✅ Portal loaded');
-  await page.waitForTimeout(3000);
+  await sleep(3000);
 
   console.log('🔍 Finding Annual Applications dataset...');
 
@@ -219,7 +219,7 @@ async function downloadAnnual(page, downloadPath) {
 
   if (foundAnnual) {
     console.log('✅ Found Annual Applications section');
-    await page.waitForTimeout(2000);
+    await sleep(2000);
   }
 
   console.log('📊 Locating annual file...');
@@ -242,12 +242,17 @@ async function downloadAnnual(page, downloadPath) {
       timeout: 120000,
     });
 
-    await page.waitForTimeout(5000);
+    await sleep(5000);
   } else {
     throw new Error('Could not find annual file link');
   }
 
   console.log('✅ Annual file downloaded');
+}
+
+// Helper function to replace waitForTimeout
+function sleep(ms: number): Promise<void> {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 async function importAllFiles() {
