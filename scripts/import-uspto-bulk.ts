@@ -44,6 +44,7 @@ function mapStatus(actionKey: string | undefined, statusText: string | undefined
 function getText(obj: unknown): string {
   if (obj == null) return '';
   if (typeof obj === 'string') return obj.trim();
+  if (typeof obj === 'number') return String(obj).trim();
   if (Array.isArray(obj)) return getText(obj[0]);
   if (typeof obj === 'object' && obj !== null && '#text' in obj) return String((obj as { '#text': string })['#text']).trim();
   return '';
@@ -101,6 +102,14 @@ function extractCaseFiles(root: unknown): unknown[] {
         if (s && typeof s === 'object') collectCaseFiles(s);
       }
     }
+    // Handle annual backfile format with application-information container
+    const appInfo = o['application-information'];
+    if (appInfo) {
+      const arr = Array.isArray(appInfo) ? appInfo : [appInfo];
+      for (const ai of arr) {
+        if (ai && typeof ai === 'object') collectCaseFiles(ai);
+      }
+    }
   }
 
   collectCaseFiles(r);
@@ -124,21 +133,28 @@ function caseFileToRow(cf: unknown): {
 } | null {
   if (!cf || typeof cf !== 'object') return null;
   const c = cf as Record<string, unknown>;
+
+  // Handle annual backfile format where data is nested in case-file-header
+  let header = c;
+  if ('case-file-header' in c && c['case-file-header'] && typeof c['case-file-header'] === 'object') {
+    header = c['case-file-header'] as Record<string, unknown>;
+  }
+
   const serial = getText(c['serial-number'] ?? c['serialNumber']);
-  const mark = getText(c['mark-identification'] ?? c['markIdentification'] ?? c['mark-identification-header']);
+  const mark = getText(header['mark-identification'] ?? header['markIdentification'] ?? header['mark-identification-header'] ?? c['mark-identification']);
   if (!serial || !mark) return null;
 
-  const filingDateRaw = getText(c['filing-date'] ?? c['filingDate']);
-  const regDateRaw = getText(c['registration-date'] ?? c['registrationDate']);
+  const filingDateRaw = getText(header['filing-date'] ?? header['filingDate'] ?? c['filing-date']);
+  const regDateRaw = getText(header['registration-date'] ?? header['registrationDate'] ?? c['registration-date']);
   const filingDate = filingDateRaw ? normalizeDate(filingDateRaw) : null;
   const registrationDate = regDateRaw ? normalizeDate(regDateRaw) : null;
 
-  const actionKey = getText(c['action-key'] ?? c['actionKey']);
-  const statusDesc = getText(c['status-code'] ?? c['statusCode'] ?? c['mark-current-status-external-description-text']);
+  const actionKey = getText(header['action-key'] ?? header['actionKey'] ?? c['action-key']);
+  const statusDesc = getText(header['status-code'] ?? header['statusCode'] ?? header['mark-current-status-external-description-text'] ?? c['status-code']);
   const status = mapStatus(actionKey, statusDesc);
 
   let ownerName: string | null = null;
-  const party = c['party'] ?? c['applicant'] ?? c['owner'];
+  const party = header['party'] ?? header['applicant'] ?? header['owner'] ?? c['party'];
   if (party) {
     const arr = Array.isArray(party) ? party : [party];
     const name = arr.find((p: unknown) => p && typeof p === 'object' && ('party-name' in (p as object) || 'name' in (p as object)));
@@ -147,9 +163,9 @@ function caseFileToRow(cf: unknown): {
     }
   }
 
-  const classification = c['classification-national'] ?? c['international-class-code'] ?? c['classification'];
+  const classification = header['classification-national'] ?? header['international-class-code'] ?? header['classification'] ?? c['classification-national'];
   const niceClasses = getNiceClasses(classification);
-  const goodsServices = getText(c['goods-services'] ?? c['goodsServices']) || null;
+  const goodsServices = getText(header['goods-services'] ?? header['goodsServices'] ?? c['goods-services']) || null;
 
   const normalized = mark.toLowerCase().replace(/\s+/g, '');
   const markSoundex = soundex(mark);
@@ -238,11 +254,13 @@ async function main() {
   });
   const parsed = parser.parse(xml);
   const root = parsed['trademark-applications-daily'] ?? parsed['trademark-applications-daily-version'] ?? parsed;
+
   const caseFiles = extractCaseFiles(root);
   console.log('Parsed', caseFiles.length, 'case-file(s)');
 
   const toInsert: Array<NonNullable<ReturnType<typeof caseFileToRow>>> = [];
-  for (const cf of caseFiles) {
+  for (let i = 0; i < caseFiles.length; i++) {
+    const cf = caseFiles[i];
     const row = caseFileToRow(cf);
     if (row) toInsert.push(row);
     if (limit && toInsert.length >= limit) break;

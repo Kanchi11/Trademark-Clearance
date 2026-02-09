@@ -1,0 +1,35 @@
+
+═══════════════════════════════════════════════════════════
+Daily Trademark Import - Mon Feb  9 11:31:31 EST 2026
+═══════════════════════════════════════════════════════════
+
+📅 Date: 260208
+📥 File: apc260208.zip
+🔗 URL: https://data.uspto.gov/bulkdata/trademark/dailyxml/TRTDXFAP/apc260208.zip
+
+⬇️  Downloading...
+✅ Downloaded ( 20K)
+
+📊 Importing into database...
+❌ Import failed
+
+═══════════════════════════════════════════════════════════
+Daily Trademark Import - Mon Feb  9 11:49:01 EST 2026
+═══════════════════════════════════════════════════════════
+
+📅 Date: 260208
+📥 File: apc260208.zip
+🔗 URL: https://data.uspto.gov/bulkdata/trademark/dailyxml/TRTDXFAP/apc260208.zip
+
+⬇️  Downloading...
+✅ Downloaded ( 20K)
+
+📊 Importing into database...
+⚠️  File appears to be invalid (not a ZIP file)
+    Content type: /Users/kanchanads/Documents/Arcangel/trademark-clearance/downloads/apc260208.zip: HTML document text, ASCII text, with very long lines (10336)
+
+💡 Note: Direct download from data.uspto.gov doesn't work reliably
+   Use the XML file you already downloaded instead:
+
+   npm run data:import -- --file /Users/kanchanads/Downloads/apc18840407-20241231-86.xml
+
