@@ -20,6 +20,7 @@
     "auto:download": "tsx scripts/auto-download.ts",
     "smart:download": "tsx scripts/smart-download.ts",
     "api:download": "tsx scripts/api-download.ts",
+    "backfill:daily": "tsx scripts/backfill-recent-daily.ts",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",

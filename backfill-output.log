@@ -1,0 +1,16 @@
+
+> trademark-clearance@0.1.0 backfill:daily
+> tsx scripts/backfill-recent-daily.ts --days 60
+
+[dotenv@17.2.3] injecting env (7) from .env.local -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
+
+📥 Backfilling daily trademark data (last 60 days)...
+
+📅 Date range: Wed Dec 10 2025 to Sun Feb 08 2026
+📊 Total days to process: 61
+
+[251210] Downloading... TypeError: fs.createWriteStream is not a function
+    at resolve (/Users/kanchanads/Documents/Arcangel/trademark-clearance/scripts/backfill-recent-daily.ts:55:21)
+    at new Promise (<anonymous>)
+    at downloadFile (/Users/kanchanads/Documents/Arcangel/trademark-clearance/scripts/backfill-recent-daily.ts:53:10)
+    at main (/Users/kanchanads/Documents/Arcangel/trademark-clearance/scripts/backfill-recent-daily.ts:105:15)
