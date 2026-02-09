@@ -47,11 +47,11 @@ if (!DATABASE_URL) {
     console.log('✅ Cleared');
     console.log();
 
-    console.log('📥 Downloading annual trademark backfile (2024)...');
-    console.log('   This is ~500MB-1GB and may take several minutes');
+    console.log('📥 Downloading annual trademark backfile (1884-2024)...');
+    console.log('   This is ~7GB and may take 10-30 minutes depending on connection');
     console.log();
 
-    const annualUrl = 'https://data.uspto.gov/bulkdata/trademark/xmlfull/tm-yearly-2024.zip';
+    const annualUrl = 'https://data.uspto.gov/bulkdata/trademark/xmlfull/apc18840407-20241231-86.zip';
 
     try {
       execSync(`npm run data:import -- --url "${annualUrl}"`, {
