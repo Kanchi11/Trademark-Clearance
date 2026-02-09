@@ -18,6 +18,8 @@
     "import:file": "tsx scripts/import-uspto-bulk.ts --file",
     "import:batch": "tsx scripts/batch-import.ts",
     "auto:download": "tsx scripts/auto-download.ts",
+    "smart:download": "tsx scripts/smart-download.ts",
+    "api:download": "tsx scripts/api-download.ts",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
