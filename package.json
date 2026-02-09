@@ -21,6 +21,8 @@
     "smart:download": "tsx scripts/smart-download.ts",
     "api:download": "tsx scripts/api-download.ts",
     "backfill:daily": "tsx scripts/backfill-recent-daily.ts",
+    "agent:trademark": "tsx scripts/trademark-agent.ts",
+    "crawler:trademark": "tsx scripts/crawler-trademark.ts",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
