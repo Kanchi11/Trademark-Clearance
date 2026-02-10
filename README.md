@@ -2,9 +2,26 @@
 
 A comprehensive, self-service trademark clearance tool designed for founders, startups, and small businesses. Quickly assess trademark availability and conflict risk before filing - think of it as your "pre-attorney clearance search" that saves time and money.
 
- This is an MVP model that uses xml data downloaded from uspto gov database. The steps are mentioned please make sure to go throuh all the steps before getting started
+This is an MVP model that uses xml data downloaded from uspto gov database. The steps are mentioned please make sure to go throuh all the steps before getting started
 
 🚨 **This is not legal advice.** This tool provides information only. Always consult a qualified trademark attorney for final clearance before filing.
+
+---
+
+## 🚀 Quick Start for Reviewers
+
+Want to run this project quickly? Here's the TL;DR:
+
+1. **Clone repo:** `git clone https://github.com/Kanchi11/trademark-clearance.git`
+2. **Install:** `npm install`
+3. **Get database access:** Email me at **kds@ncsu.edu** for read-only database credentials or also use the env.example 
+4. **Add credentials:** Put the DATABASE_URL in `.env.local`
+5. **Run:** `npm run dev`
+6. **Open:** http://localhost:3000
+
+⏱️ **Total time: ~10 minutes**
+
+No large file downloads or data imports needed! See [Complete Setup Guide](#getting-started) for detailed instructions.
 
 ---
 
@@ -286,6 +303,8 @@ EXTERNAL DATA SOURCE:
 
 ### Complete Setup Guide (Clone to Running)
 
+**For Reviewers:** The fastest way to get started is using the **read-only database**. Follow Steps 1-3, then jump to Step 5 Option A to request database access to kds@ncsu.edu or just refer env.example. You'll be running the app in ~10 minutes!
+
 Follow these steps to get the project running on your local machine:
 
 ### Prerequisites
@@ -342,10 +361,10 @@ Edit `.env.local` and add your database connection:
 
 ```bash
 # === REQUIRED ===
-# Database (Supabase or local PostgreSQL)
+# Database (Supabase or local PostgreSQL, use the url provided in env example or email the author to get prepopulated db with 1.6M + records )
 DATABASE_URL=postgresql://user:password@host:port/database
 
-# === OPTIONAL (but recommended) ===
+
 # Google Custom Search (for automated common law research)
 # Without this, manual search links will still be provided
 GOOGLE_API_KEY=your_google_api_key
@@ -383,6 +402,10 @@ DATABASE_URL=postgresql://localhost:5432/trademark_clearance
 
 ### Step 4: Set Up Database Schema
 
+**Note:** If you plan to use the **read-only database** (Option A in Step 5), you can **skip this step** since the tables already exist.
+
+If you're setting up your **own database** (Option B in Step 5), run:
+
 ```bash
 # Push the database schema (creates all tables and indexes)
 npm run db:push
@@ -395,47 +418,55 @@ npm run db:push
 
 This creates the `trademarks` table with all necessary columns and indexes.
 
-### Step 5: Download USPTO Trademark Data
+### Step 5: Get Access to Trademark Data
 
-**⚠️ IMPORTANT:** The XML files are NOT included in this repository (too large - 34GB total).
+**⚠️ IMPORTANT:** The trademark database contains 1,422,522 records imported from USPTO XML files. You have two options:
 
-#### Download from Google Drive
+#### Option A: Use Read-Only Database (Recommended - 5 minutes) ⭐
 
-I've uploaded the exact XML files used in this project:
+**This is the fastest way to get started!** I've made the production database available as read-only for reviewers.
 
-📦 **Download Link:** `[GOOGLE_DRIVE_LINK_HERE - Add your link]`
+**How to get access:**
+1. **Contact me** via email at **kds@ncsu.edu** or open a GitHub issue
+2. I'll provide you with a **read-only database connection string**
+3. **Add it to your `.env.local`:**
+   ```bash
+   DATABASE_URL=postgresql://readonly_user:password@host:port/database
+   ```
+4. **Skip to Step 6** - You're ready to run the app!
 
-**What's included:**
-- Select files from USPTO's Annual Trademark database (TRTYRAP)
-- Compressed size: ~5-10GB
-- After extraction: Contains 1,422,522 trademark records
-- Same data used in the production/demo version
+**Benefits:**
+- ✅ **Instant access** - No downloads or imports needed
+- ✅ **Same data** - Exact 1.4M+ trademarks used in production
+- ✅ **Read-only** - Safe, can't modify production data
+- ✅ **Always current** - Automatically updated when I update the database
 
-#### Extract the Files
+---
+
+#### Option B: Import Your Own Data (Alternative - 1-2 hours)
+
+If you want your own local database with full control:
+
+**Step B1: Download USPTO XML Files**
+
+The XML files are NOT in this repository (too large - 34GB). You can:
+- **Option B1a:** Download from USPTO directly at [bulkdata.uspto.gov](https://bulkdata.uspto.gov/ui/datasets/products/files/TRTYRAP)
+- **Option B1b:** Contact me for a Google Drive link to the specific files I used
+
+**Step B2: Extract and Import**
 
 ```bash
-# 1. After downloading the ZIP, create downloads folder
+# 1. Create downloads folder
 mkdir -p downloads
 
-# 2. Move the downloaded ZIP to your project directory
-# (Adjust the path based on where your browser downloaded it)
-mv ~/Downloads/trademark-xml-files.zip .
+# 2. Place downloaded XML files in downloads/ folder
+# Move files: mv ~/Downloads/*.xml downloads/
 
-# 3. Extract all XML files to the downloads/ folder
-unzip trademark-xml-files.zip -d downloads/
-
-# 4. Verify files extracted successfully
+# 3. Verify files are there
 ls -lh downloads/
 # You should see multiple .xml files (each 200MB-1GB)
 
-# 5. Optional: Remove ZIP to save space
-rm trademark-xml-files.zip
-```
-
-### Step 6: Import Data to Database
-
-```bash
-# Run the batch import script
+# 4. Run the batch import script
 npm run batch-import
 
 # Expected output:
@@ -443,7 +474,6 @@ npm run batch-import
 # 📂 Found 15 XML files in downloads/
 # 🔄 Processing: apc170101-20231130-001-trtyrap.xml
 # ✅ Imported 87,432 trademarks from file 1/15
-# 🔄 Processing: apc170101-20231130-002-trtyrap.xml
 # ... (continues for each file)
 # ✅ Import complete! Total: 1,422,522 trademarks
 
@@ -458,11 +488,13 @@ npm run batch-import
 - Creates indexes for fast searching
 
 **Troubleshooting:**
-- **Out of memory error:** Your system may need more RAM, try processing files one at a time
+- **Out of memory error:** Increase Node memory: `NODE_OPTIONS="--max-old-space-size=4096" npm run batch-import`
 - **Database connection error:** Verify your `DATABASE_URL` in `.env.local`
 - **XML files not found:** Ensure files are in `downloads/` folder
 
-### Step 7: Run the Application
+---
+
+### Step 6: Run the Application
 
 ```bash
 # Start development server
@@ -479,7 +511,7 @@ npm run dev
 
 You should see the trademark clearance search interface!
 
-### Step 8: Test the Application
+### Step 7: Test the Application
 
 Try searching for a famous brand to verify everything works:
 
@@ -718,9 +750,7 @@ trademark-clearance/
 **USPTO offers several trademark data access methods. Here's why we chose the manual XML approach for this MVP:**
 
 ### 1. **USPTO TSDR API** ❌
-   - **Requires verification:** Business verification process can take days or weeks
-   - **Rate limited:** Severely restricted request rates prevent building a searchable database
-   - **Per-record lookup:** Only checks status of known serial numbers, can't discover similar marks
+   - **Requires verification:** Business verification process can take days or weeks to get API key
    - **Future use:** Can be added later for live verification of individual results (requires API key approval)
 
 ### 2. **Web Scraping** ❌
@@ -742,6 +772,10 @@ trademark-clearance/
 - Parsed using SAX streaming parser (handles large files efficiently)
 - Imported **1,422,522 trademarks** to searchable PostgreSQL database
 
+**For Reviewers/Developers:**
+- **Easy Option:** Use read-only database credentials (contact me at kds@ncsu.edu) or check the env.example 
+- **Full Control Option:** Download and import XML files yourself (see Getting Started section)
+
 **Data Source Details:**
 - **Official URL:** https://bulkdata.uspto.gov/ui/datasets/products/files/TRTYRAP
 - **Total Files Available:** 86 files (~10GB each when uncompressed)
@@ -751,7 +785,7 @@ trademark-clearance/
 **Future Roadmap:**
 - **Phase 1 (Current):** XML bulk data for comprehensive search
 - **Phase 2 (Future):** Add USPTO TSDR API integration for live status verification after obtaining API approval
-- **Phase 3 (Future):** Automated daily updates from USPTO daily XML feeds
+
 
 ---
 
