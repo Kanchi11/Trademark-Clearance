@@ -18,11 +18,6 @@ Want to run this project quickly? Here's the TL;DR:
 4. **Add credentials:** Put the DATABASE_URL in `.env.local`
 5. **Run:** `npm run dev`
 6. **Open:** http://localhost:3000
-
-⏱️ **Total time: ~10 minutes**
-
-No large file downloads or data imports needed! See [Complete Setup Guide](#getting-started) for detailed instructions.
-
 ---
 
 ## Features
@@ -51,9 +46,9 @@ No large file downloads or data imports needed! See [Complete Setup Guide](#gett
   - **RULE 5:** Any single factor very high (75%+ = MEDIUM)
   - **RULE 6:** Fuzzy matching edge cases
 - **3-Tier Professional Risk Categories:**
-  - 🔴 **BLOCKING CONFLICTS (HIGH):** Identical/near-identical marks in same class - strong likelihood of rejection
-  - 🟡 **CAUTION REQUIRED (MEDIUM):** Phonetically similar, visually similar, or multiple similarity factors elevated
-  - 🟢 **LOW RISK / MONITOR:** Different enough, or different industry class
+  - **BLOCKING CONFLICTS (HIGH):** Identical/near-identical marks in same class - strong likelihood of rejection
+  -  **CAUTION REQUIRED (MEDIUM):** Phonetically similar, visually similar, or multiple similarity factors elevated
+  - **LOW RISK / MONITOR:** Different enough, or different industry class
 - **Intelligent Escalation:** 3+ MEDIUM risks automatically escalate to HIGH overall (industry standard)
 - **Detailed Explanations:** Each conflict shows specific trigger reason (e.g., "Marks sound very similar")
 
