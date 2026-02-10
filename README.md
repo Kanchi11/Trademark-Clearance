@@ -6,6 +6,19 @@ A comprehensive, self-service trademark clearance tool designed for founders, st
 
 ---
 
+## 📋 For Reviewers & Demo Users
+
+**Need access to the 1.4M+ trademark database?**
+
+XML files (34GB) are not in this repo. See **[REVIEWERS.md](./REVIEWERS.md)** for options:
+- ⭐ **Option 1:** Use shared read-only database (5 min setup)
+- 📥 **Option 2:** Download USPTO XML files yourself (2-4 hours)
+- 📦 **Option 3:** Cloud storage link (if provided)
+
+**Quick Start:** Contact me for read-only database credentials to get running in 5 minutes.
+
+---
+
 ## Features
 
 ### 🔍 **Comprehensive Federal Search**
