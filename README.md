@@ -2,20 +2,9 @@
 
 A comprehensive, self-service trademark clearance tool designed for founders, startups, and small businesses. Quickly assess trademark availability and conflict risk before filing - think of it as your "pre-attorney clearance search" that saves time and money.
 
+ This is an MVP model that uses xml data downloaded from uspto gov database. The steps are mentioned please make sure to go throuh all the steps before getting started
+
 🚨 **This is not legal advice.** This tool provides information only. Always consult a qualified trademark attorney for final clearance before filing.
-
----
-
-## 📋 For Reviewers & Demo Users
-
-**Need access to the 1.4M+ trademark database?**
-
-XML files (34GB) are not in this repo. See **[REVIEWERS.md](./REVIEWERS.md)** for options:
-- ⭐ **Option 1:** Use shared read-only database (5 min setup)
-- 📥 **Option 2:** Download USPTO XML files yourself (2-4 hours)
-- 📦 **Option 3:** Cloud storage link (if provided)
-
-**Quick Start:** Contact me for read-only database credentials to get running in 5 minutes.
 
 ---
 
@@ -52,7 +41,7 @@ XML files (34GB) are not in this repo. See **[REVIEWERS.md](./REVIEWERS.md)** fo
 - **Detailed Explanations:** Each conflict shows specific trigger reason (e.g., "Marks sound very similar")
 
 ### 🔗 **Evidence & Verification**
-- Direct links to USPTO TSDR for each conflict
+- Direct links to USPTO TSDR for each conflict (will have to type srial number as of now )
 - Common law search integration (optional Google Custom Search API)
 - Manual research links (Google, LinkedIn, Crunchbase) - always shown even without API
 
@@ -84,47 +73,272 @@ XML files (34GB) are not in this repo. See **[REVIEWERS.md](./REVIEWERS.md)** fo
 
 ## Tech Stack
 
-- **Framework:** Next.js 16.1.5 (App Router, React Server Components)
-- **Database:** PostgreSQL (Supabase) with Drizzle ORM - **1,422,522 USPTO trademarks**
-- **Algorithms:**
-  - Soundex (phonetic - USPTO standard)
-  - Metaphone (improved phonetic)
-  - Levenshtein distance (visual/edit distance)
-  - Dice Coefficient (fuzzy/bigram matching)
-  - **Weighted scoring:** 40% exact, 30% visual, 20% phonetic, 10% fuzzy
-- **APIs:**
-  - Google DNS for domain checks
-  - Google Custom Search for common law research (optional)
-  - USPTO TSDR for live verification (optional)
-- **PDF Generation:** jsPDF with autoTable
-- **Data Source:** Official USPTO bulk XML files
+### Frontend
+- **Framework:** Next.js 16.1.5 (App Router)
+- **React:** Server Components for optimal performance
+- **TypeScript:** Full type safety
+- **Styling:** Tailwind CSS
+
+### Backend
+- **Runtime:** Node.js 18+
+- **Database:** PostgreSQL (Supabase recommended)
+- **ORM:** Drizzle ORM - Type-safe database queries
+- **Data Volume:** 1,422,522 USPTO trademarks
+
+### Algorithms & Libraries
+- **Soundex:** Phonetic matching (USPTO standard)
+- **Metaphone:** Improved phonetic algorithm
+- **Levenshtein Distance:** Visual/edit distance calculation
+- **Dice Coefficient:** Fuzzy/bigram matching
+- **Weighted Scoring:** 40% exact, 30% visual, 20% phonetic, 10% fuzzy
+
+### External APIs (Optional)
+- **Google DNS API:** Domain availability checks
+- **Google Custom Search API:** Common law research (optional - manual links provided if not configured)
+- **USPTO TSDR API:** Live verification (optional - future enhancement)
+
+### PDF Generation
+- **jsPDF:** PDF creation library
+- **autoTable:** Table formatting in PDFs
+
+### Data Processing
+- **SAX Parser:** Streaming XML parser for large USPTO files
+- **Batch Processing:** Handles 500MB+ XML files efficiently
+
+---
+
+## Design Decisions & Architecture
+
+### Why We Built It This Way
+
+#### 1. **Next.js with App Router (Not Pages Router)**
+**Decision:** Use Next.js 16.1.5 with App Router instead of older Pages Router
+
+**Reasoning:**
+- **Server Components:** Reduce client-side JavaScript bundle size by rendering components on the server
+- **Streaming:** Progressive rendering for faster perceived performance
+- **Built-in API routes:** Simplifies backend logic without separate Express server
+- **File-based routing:** Intuitive folder structure maps directly to URLs
+- **Future-proof:** App Router is the recommended approach going forward
+
+#### 2. **PostgreSQL + Drizzle ORM (Not MongoDB or Prisma)**
+**Decision:** Use PostgreSQL with Drizzle ORM instead of MongoDB or Prisma
+
+**Reasoning:**
+- **Relational data:** Trademarks have structured fields (serial number, classes, dates) - relational DB is perfect
+- **Array support:** PostgreSQL's `INTEGER[]` type handles Nice classes efficiently
+- **Full-text search:** Built-in text search capabilities with GIN indexes
+- **Drizzle benefits:**
+  - **Type-safe:** Full TypeScript inference without code generation
+  - **Lightweight:** No heavy ORM overhead like Prisma
+  - **SQL-first:** Easy to write raw SQL when needed
+  - **Migration control:** Simple schema management with `db:push`
+
+
+
+#### 4. **SAX Parser for XML (Not DOM or JSON conversion)**
+**Decision:** Stream-parse XML with SAX instead of loading entire file into memory
+
+**Reasoning:**
+- **File size:** USPTO XML files are 500MB+ each (10GB uncompressed)
+- **Memory efficiency:** SAX uses ~50MB RAM regardless of file size; DOM would need 2-3GB
+- **Speed:** Processes 100K+ records in minutes
+- **Reliability:** No out-of-memory crashes
+- **Trade-off:** More complex code, but necessary for large files
+
+#### 5. **Batch Import with Files Downloaded USPTO Website  (Not Real-time API)**
+**Decision:** Download and import XML files once, then search locally
+
+**Reasoning:** 
+- **USPTO API limitations:**
+  - Verification to get API key takes weeks and can be implemented in V2. once we get, Webscraping isnt ideal and not allowed. So manually downloaded the zip files from Annual database and stored it in download/ under the application repo
+- **Performance:** Local database searches are 100x faster (2-5 seconds vs 2+ minutes for API calls)
+- **Cost:** No per-request API costs
+- **Offline capability:** Works without external dependencies after import
+- **Trade-off:** Requires initial data download, but provides better UX
+
+#### 6. **Supabase for Database Hosting (Not AWS RDS or self-hosted)**
+**Decision:** Recommend Supabase for managed PostgreSQL
+
+**Reasoning:**
+- **Free tier:** Generous free tier for MVP/demos
+- **Managed:** No server maintenance or backups needed
+- **PostgreSQL:** Full PostgreSQL (not limited subset)
+- **Developer experience:** Simple connection string, web dashboard
+- **Scalability:** Easy to upgrade when needed
+- **Alternative:** Local PostgreSQL for development works fine too
+
+#### 7. **Pagination at 10 Results (Not Infinite Scroll)**
+**Decision:** Show 10 results per page with numbered pagination
+
+**Reasoning:**
+- **Attorney workflow:** Legal professionals review results methodically, not casually scrolling
+- **Performance:** Rendering 100+ results at once causes browser lag
+- **Clarity:** Page numbers help track "I reviewed pages 1-3"
+- **Accessibility:** Better for keyboard navigation and screen readers
+
+#### 8. **Client-Side PDF Generation (Not Server-Side)**
+**Decision:** Use jsPDF in browser instead of server-side PDF services
+
+**Reasoning:**
+- **No backend dependency:** Works entirely in browser
+- **Privacy:** User data never sent to external PDF service
+- **Cost:** Free (no AWS Lambda or PDF API costs)
+- **Speed:** Instant generation without network round-trip
+- **Trade-off:** Slightly larger client bundle, but worth it for privacy
+
+### Architecture Overview
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                        USER BROWSER                          │
+│  ┌────────────┐      ┌──────────────┐     ┌──────────────┐ │
+│  │  Search UI │ ───> │ Results Page │ ──> │ PDF Download │ │
+│  └────────────┘      └──────────────┘     └──────────────┘ │
+│         │                    │                              │
+└─────────┼────────────────────┼──────────────────────────────┘
+          │                    │
+          ▼                    ▼
+┌─────────────────────────────────────────────────────────────┐
+│                  NEXT.JS API ROUTES (Server)                 │
+│  ┌──────────────────┐  ┌───────────────┐  ┌──────────────┐ │
+│  │ /api/clearance   │  │ /api/search   │  │ /api/report  │ │
+│  │ (Full Search)    │  │ (USPTO Only)  │  │ (PDF Data)   │ │
+│  └────────┬─────────┘  └───────┬───────┘  └──────────────┘ │
+└───────────┼────────────────────┼─────────────────────────────┘
+            │                    │
+            ▼                    ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    BUSINESS LOGIC LAYER                      │
+│  ┌──────────────────────────────────────────────────────┐   │
+│  │           TrademarkSearchService                     │   │
+│  │  - Orchestrates search workflow                      │   │
+│  │  - Calls repository + risk engine + domain check     │   │
+│  └────┬─────────────────────┬──────────────────┬────────┘   │
+│       │                     │                  │            │
+│       ▼                     ▼                  ▼            │
+│  ┌─────────────┐   ┌──────────────┐   ┌─────────────────┐  │
+│  │ Trademark   │   │ Risk         │   │ Domain Checker  │  │
+│  │ Repository  │   │ Assessment   │   │ (Google DNS)    │  │
+│  │             │   │ Engine       │   │                 │  │
+│  └──────┬──────┘   └──────────────┘   └─────────────────┘  │
+└─────────┼──────────────────────────────────────────────────┘
+          │
+          ▼
+┌─────────────────────────────────────────────────────────────┐
+│              POSTGRESQL DATABASE (Supabase)                  │
+│  ┌──────────────────────────────────────────────────────┐   │
+│  │  trademarks table (1,422,522 records)                │   │
+│  │  - serial_number, mark_text, owner_name              │   │
+│  │  - status, filing_date, registration_date            │   │
+│  │  - nice_classes[] (array)                            │   │
+│  │                                                       │   │
+│  │  Indexes:                                            │   │
+│  │  - B-tree on mark_text (fast lookups)               │   │
+│  │  - GIN on nice_classes (array queries)              │   │
+│  │  - B-tree on status (filter by LIVE/PENDING)        │   │
+│  └──────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────┘
+
+EXTERNAL DATA SOURCE:
+┌─────────────────────────────────────────────────────────────┐
+│               USPTO Bulk Data (XML Files)                    │
+│  https://bulkdata.uspto.gov/                                 │
+│                                                              │
+│  ┌────────────┐  ┌────────────┐  ┌────────────┐            │
+│  │ Annual #01 │  │ Annual #02 │  │ Annual #03 │  ... (86)  │
+│  │ (~10GB)    │  │ (~10GB)    │  │ (~10GB)    │            │
+│  └────────────┘  └────────────┘  └────────────┘            │
+│                                                              │
+│  Downloaded via Google Drive → /downloads/ folder           │
+│                    ↓                                         │
+│            scripts/import-uspto-sax.ts                       │
+│                    ↓                                         │
+│            Parsed and imported to PostgreSQL                 │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Data Flow for a Typical Search
+
+1. **User enters "BrandX" + Class 25** in search form
+2. **Next.js API route** `/api/clearance` receives request
+3. **TrademarkSearchService** orchestrates:
+   - Calls `TrademarkRepository.searchSimilar("BrandX", classes=[25])`
+   - Repository runs 4 similarity queries:
+     - Exact match (SQL `ILIKE`)
+     - Phonetic match (Soundex algorithm)
+     - Visual match (Levenshtein distance < 3)
+     - Fuzzy match (substring/trigram)
+   - Returns ~50 potential conflicts
+4. **Risk Assessment Engine** evaluates each:
+   - Calculates similarity breakdown (exact, phonetic, visual, fuzzy)
+   - Applies 6 multi-factor rules
+   - Assigns HIGH/MEDIUM/LOW to each conflict
+5. **Domain Check** runs DNS lookups for .com, .net, etc.
+6. **Social Media** generates check links
+7. **Common Law** (if API configured) searches Google
+8. **Results Page** renders with pagination (10 per page)
+9. **PDF Export** (optional) generates attorney-ready report
 
 ---
 
 ## Getting Started
 
-### 1. Prerequisites
-- Node.js 18+ and npm
-- PostgreSQL database (Supabase recommended, or local PostgreSQL)
-- (Optional) Google API credentials for automated common law search
+### Complete Setup Guide (Clone to Running)
 
-### 2. Clone & Install
+Follow these steps to get the project running on your local machine:
+
+### Prerequisites
+
+Before you begin, ensure you have:
+
+- **Node.js 18+** and npm installed (check: `node --version` and `npm --version`)
+- **Git** installed (check: `git --version`)
+- **PostgreSQL database** - Choose one option:
+  - **Option A (Recommended):** Supabase free tier - [Sign up here](https://supabase.com)
+  - **Option B:** Local PostgreSQL installation
+- **(Optional)** Google API credentials for automated common law search (see [GOOGLE_API_SETUP.md](./GOOGLE_API_SETUP.md))
+
+### Step 1: Clone the Repository
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/trademark-clearance.git
+git clone https://github.com/Kanchi11/trademark-clearance.git
+
+# Navigate into the project directory
 cd trademark-clearance
 
-# Install dependencies
-npm install
-
-# Copy environment template
-cp .env.example .env.local
+# Verify you're in the right directory
+ls -la
+# You should see: package.json, README.md, app/, src/, etc.
 ```
 
-### 3. Configure Environment Variables
+### Step 2: Install Dependencies
 
-Edit `.env.local`:
+```bash
+# Install all npm packages
+npm install
+
+# This will install:
+# - Next.js, React, TypeScript
+# - Drizzle ORM, PostgreSQL driver
+# - jsPDF, similarity algorithms
+# - And all other dependencies listed in package.json
+
+# Wait for installation to complete (30-60 seconds)
+```
+
+### Step 3: Set Up Environment Variables
+
+```bash
+# Copy the example environment file
+cp .env.example .env.local
+
+# Open .env.local in your text editor
+# For example: code .env.local (VS Code) or nano .env.local
+```
+
+Edit `.env.local` and add your database connection:
 
 ```bash
 # === REQUIRED ===
@@ -136,91 +350,454 @@ DATABASE_URL=postgresql://user:password@host:port/database
 # Without this, manual search links will still be provided
 GOOGLE_API_KEY=your_google_api_key
 GOOGLE_SEARCH_ENGINE_ID=your_search_engine_id
-
-# Note: Manual links work without API - users can click to search manually
 ```
 
-### 4. Set Up Database
+**How to get DATABASE_URL:**
+
+**Option A: Supabase (Recommended - Free Tier)**
+1. Go to [supabase.com](https://supabase.com) and create a free account
+2. Create a new project:
+   - Project name: `trademark-clearance` (or your choice)
+   - Database password: Choose a strong password
+   - Region: Select closest to your location
+   - Wait 2-3 minutes for project to provision
+3. Get your connection string:
+   - Navigate to **Settings** → **Database**
+   - Scroll to **Connection String** section
+   - Copy the **URI** format (starts with `postgresql://`)
+   - Replace `[YOUR-PASSWORD]` with your actual database password
+4. Paste into `.env.local` as `DATABASE_URL`
+
+**Option B: Local PostgreSQL**
+```bash
+# Install PostgreSQL locally (macOS example)
+brew install postgresql@15
+brew services start postgresql@15
+
+# Create database
+createdb trademark_clearance
+
+# Your DATABASE_URL will be:
+DATABASE_URL=postgresql://localhost:5432/trademark_clearance
+```
+
+### Step 4: Set Up Database Schema
 
 ```bash
-# Push database schema (creates tables)
+# Push the database schema (creates all tables and indexes)
 npm run db:push
+
+# You should see output like:
+# ✓ Schema pushed successfully
+# ✓ Created table: trademarks
+# ✓ Created indexes
 ```
 
-### 5. Import USPTO Trademark Data
+This creates the `trademarks` table with all necessary columns and indexes.
 
-**⚠️ IMPORTANT:** This version includes only **some XML files** from the USPTO database. The current database has **1,422,522 trademarks** imported from select daily files.
+### Step 5: Download USPTO Trademark Data
 
-#### Quick Start (Use Existing Database)
-If cloning this repo to use with the existing Supabase database:
+**⚠️ IMPORTANT:** The XML files are NOT included in this repository (too large - 34GB total).
+
+#### Download from Google Drive
+
+I've uploaded the exact XML files used in this project:
+
+📦 **Download Link:** `[GOOGLE_DRIVE_LINK_HERE - Add your link]`
+
+**What's included:**
+- Select files from USPTO's Annual Trademark database (TRTYRAP)
+- Compressed size: ~5-10GB
+- After extraction: Contains 1,422,522 trademark records
+- Same data used in the production/demo version
+
+#### Extract the Files
+
 ```bash
-# Just configure DATABASE_URL in .env.local
-# The database already has 1.4M+ trademarks ready to use
+# 1. After downloading the ZIP, create downloads folder
+mkdir -p downloads
+
+# 2. Move the downloaded ZIP to your project directory
+# (Adjust the path based on where your browser downloaded it)
+mv ~/Downloads/trademark-xml-files.zip .
+
+# 3. Extract all XML files to the downloads/ folder
+unzip trademark-xml-files.zip -d downloads/
+
+# 4. Verify files extracted successfully
+ls -lh downloads/
+# You should see multiple .xml files (each 200MB-1GB)
+
+# 5. Optional: Remove ZIP to save space
+rm trademark-xml-files.zip
+```
+
+### Step 6: Import Data to Database
+
+```bash
+# Run the batch import script
+npm run batch-import
+
+# Expected output:
+# 📦 Starting batch import...
+# 📂 Found 15 XML files in downloads/
+# 🔄 Processing: apc170101-20231130-001-trtyrap.xml
+# ✅ Imported 87,432 trademarks from file 1/15
+# 🔄 Processing: apc170101-20231130-002-trtyrap.xml
+# ... (continues for each file)
+# ✅ Import complete! Total: 1,422,522 trademarks
+
+# ⏱️ Time: 10-30 minutes depending on your machine and database
+```
+
+**What happens during import:**
+- SAX parser streams each XML file
+- Extracts trademark data (serial number, mark text, owner, status, classes)
+- Validates and cleans data
+- Batch inserts to PostgreSQL (1000 records at a time)
+- Creates indexes for fast searching
+
+**Troubleshooting:**
+- **Out of memory error:** Your system may need more RAM, try processing files one at a time
+- **Database connection error:** Verify your `DATABASE_URL` in `.env.local`
+- **XML files not found:** Ensure files are in `downloads/` folder
+
+### Step 7: Run the Application
+
+```bash
+# Start development server
 npm run dev
+
+# Expected output:
+#  ▲ Next.js 16.1.5
+#  - Local:        http://localhost:3000
+#  - Environment:  development
+# ✓ Compiled successfully
 ```
 
-#### Import Additional Data (Optional)
-To add more trademarks from other XML files:
+**Open your browser to [http://localhost:3000](http://localhost:3000)**
+
+You should see the trademark clearance search interface!
+
+### Step 8: Test the Application
+
+Try searching for a famous brand to verify everything works:
+
+1. **Go to:** http://localhost:3000
+2. **Click:** "Start New Search"
+3. **Enter:** "Microsoft" (or "Apple" or any brand name)
+4. **Select:** Class 9 (Computers and Scientific)
+5. **Click:** "Check Availability"
+6. **Wait:** 2-5 seconds for results
+7. **View:** Conflicts, risk assessment, domain availability
+
+**If you see results:** ✅ Success! Everything is working.
+
+**If you see "No results":** Your database might be empty - verify Step 6 import completed successfully.
+
+---
+
+## Running in Production
+
+### Build for Production
 
 ```bash
-# Download a daily file (2-5K new records)
-npm run data:import -- --url https://bulkdata.uspto.gov/data/trademark/dailyxml/applications/apc250207.zip
+# Create optimized production build
+npm run build
 
-# Or use a local file
-npm run data:import -- --file ./downloads/your-file.zip
+# Start production server
+npm start
+
+# Production server runs on http://localhost:3000
 ```
 
-**For comprehensive coverage**, download USPTO Annual Backfile:
-1. Visit [USPTO Trademark Annual XML](https://bulkdata.uspto.gov/ui/datasets/products/files/TRTYRAP)
-2. Download segments (86 files, ~10GB total)
-3. Place in `/downloads` folder
-4. Run: `npm run batch-import`
-
-### 6. Run the Application
+### Deploy to Vercel (Recommended)
 
 ```bash
-npm run dev
+# Install Vercel CLI
+npm install -g vercel
+
+# Deploy (from project directory)
+vercel
+
+# Follow prompts:
+# - Link to existing project or create new
+# - Add DATABASE_URL as environment variable
+# - Wait for deployment (2-3 minutes)
+# - Get production URL: https://your-project.vercel.app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) and start searching!
+**Environment variables in Vercel:**
+1. Go to your Vercel dashboard
+2. Select your project → Settings → Environment Variables
+3. Add: `DATABASE_URL` with your Supabase connection string
+4. Add (optional): `GOOGLE_API_KEY` and `GOOGLE_SEARCH_ENGINE_ID`
+
+---
+
+## Available Scripts
+
+```bash
+# Development
+npm run dev                # Start development server (hot reload enabled)
+
+# Building
+npm run build              # Create production build
+npm start                  # Run production build locally
+
+# Database
+npm run db:push            # Push schema changes to database
+npm run db:studio          # Open Drizzle Studio (visual database browser)
+
+# Data Import
+npm run batch-import       # Import all XML files from downloads/ folder
+npm run data:import -- --url <url>  # Import single file from URL
+
+# Testing (if you add tests)
+npm test                   # Run tests
+npm run lint               # Check code quality
+```
+
+---
+
+## Troubleshooting Common Issues
+
+### Issue: "Database connection failed"
+**Solution:**
+- Verify `DATABASE_URL` in `.env.local` is correct
+- Test connection: `npm run db:push`
+- If using Supabase, check your project isn't paused (inactive for 7 days)
+
+### Issue: "No trademarks found" after search
+**Solution:**
+- Database might be empty - run `npm run batch-import`
+- Or search for names you know exist (Microsoft, Apple, Nike variants)
+
+### Issue: "Port 3000 already in use"
+**Solution:**
+```bash
+# Kill process using port 3000
+lsof -ti:3000 | xargs kill -9
+
+# Or run on different port
+PORT=3001 npm run dev
+```
+
+### Issue: "Domain checks timing out"
+**Solution:**
+- This is normal for some domain extensions
+- Domain checking uses Google DNS API (free but can be slow)
+- Results will show "loading..." for slow checks
+
+### Issue: "Out of memory" during import
+**Solution:**
+```bash
+# Increase Node.js memory limit
+NODE_OPTIONS="--max-old-space-size=4096" npm run batch-import
+```
+
+### Issue: Google API not working
+**Solution:**
+- Google API credentials are **optional**
+- Manual search links work without API
+- See [GOOGLE_API_SETUP.md](./GOOGLE_API_SETUP.md) for setup guide
+
+---
+
+## Development Tips
+
+### VS Code Extensions (Recommended)
+
+Install these for better development experience:
+- **ES7+ React/Redux/React-Native snippets** - React code snippets
+- **Tailwind CSS IntelliSense** - Tailwind autocomplete
+- **Prisma/Drizzle** - Database schema syntax highlighting
+- **PostgreSQL** - SQL syntax highlighting
+- **GitLens** - Git history viewer
+
+### Database Viewing
+
+View your database visually with Drizzle Studio:
+
+```bash
+npm run db:studio
+
+# Opens web UI at http://localhost:4983
+# Browse tables, run queries, view data
+```
+
+### Debugging
+
+Add breakpoints in VS Code or use console logs:
+
+```typescript
+// In any API route or component
+console.log('Search query:', { markText, niceClasses });
+
+// View logs in terminal where `npm run dev` is running
+```
+
+---
+
+## Project Structure (Detailed)
+
+```
+trademark-clearance/
+│
+├── app/                                  # Next.js App Router
+│   ├── page.tsx                         # Landing page (/)
+│   ├── layout.tsx                       # Root layout wrapper
+│   ├── search/                          # Search interface
+│   │   └── page.tsx                     # Multi-step search form
+│   ├── results/                         # Results display
+│   │   └── page.tsx                     # Results with pagination
+│   └── api/                             # API routes (backend)
+│       ├── clearance/route.ts           # Main clearance endpoint
+│       ├── search/route.ts              # USPTO search only
+│       ├── domain-check/route.ts        # Domain availability
+│       ├── report/route.ts              # PDF generation
+│       └── common-law/route.ts          # Common law search
+│
+├── src/                                 # Core business logic
+│   └── core/
+│       ├── repositories/                # Data access layer
+│       │   └── TrademarkRepository.ts   # Database queries (SELECT, WHERE)
+│       ├── services/                    # Business logic layer
+│       │   └── TrademarkSearchService.ts # Orchestrates search workflow
+│       └── engines/                     # Processing engines
+│           └── RiskAssessmentEngine.ts  # Multi-factor risk evaluation
+│
+├── lib/                                 # Utility libraries
+│   ├── similarity.ts                    # Soundex, Levenshtein, scoring algorithms
+│   ├── risk-assessment.ts               # 6-rule risk assessment logic
+│   ├── domain-check.ts                  # DNS lookups for domain availability
+│   ├── cache.ts                         # In-memory caching
+│   └── class-suggestions.ts             # Keyword → Nice class mapping
+│
+├── db/                                  # Database configuration
+│   ├── schema.ts                        # Drizzle schema (table definitions)
+│   ├── index.ts                         # Database connection setup
+│   └── migrations/                      # Schema migrations (if using)
+│
+├── scripts/                             # Data import scripts
+│   ├── import-uspto-sax.ts              # SAX streaming XML parser
+│   ├── batch-import-all.ts              # Batch import all files in downloads/
+│   └── import-daily.ts                  # Import daily USPTO updates
+│
+├── downloads/                           # USPTO XML files (NOT in git)
+│   ├── *.xml                            # Downloaded XML files go here
+│   └── .gitignore                       # Prevents committing to git
+│
+├── public/                              # Static assets
+│   ├── logo.svg                         # App logo
+│   └── favicon.ico                      # Browser icon
+│
+├── .env.local                           # Environment variables (NOT in git)
+├── .env.example                         # Environment template (committed)
+├── .gitignore                           # Git ignore rules
+├── package.json                         # Dependencies and scripts
+├── tsconfig.json                        # TypeScript configuration
+├── tailwind.config.ts                   # Tailwind CSS config
+├── next.config.js                       # Next.js configuration
+└── README.md                            # This file
+```
+
+**Key Directories:**
+
+- **`app/`** - All UI pages and API endpoints (Next.js convention)
+- **`src/core/`** - Business logic separate from UI (clean architecture)
+- **`lib/`** - Reusable utility functions
+- **`db/`** - Database schema and connection
+- **`scripts/`** - One-time or periodic data operations
+- **`downloads/`** - Temporary storage for USPTO XML files (ignored by git)
+
+---
+
+## Why Manual XML Download Instead of API?
+
+**USPTO offers several trademark data access methods. Here's why we chose the manual XML approach for this MVP:**
+
+### 1. **USPTO TSDR API** ❌
+   - **Requires verification:** Business verification process can take days or weeks
+   - **Rate limited:** Severely restricted request rates prevent building a searchable database
+   - **Per-record lookup:** Only checks status of known serial numbers, can't discover similar marks
+   - **Future use:** Can be added later for live verification of individual results (requires API key approval)
+
+### 2. **Web Scraping** ❌
+   - **Not allowed:** Violates USPTO terms of service
+   - **Unreliable:** Website structure changes would break scrapers
+   - **Not ideal:** Legal and ethical concerns
+
+### 3. **XML Bulk Data Download** ✅ (Our Approach)
+   - ✅ **Official source:** USPTO provides free bulk XML downloads at [bulkdata.uspto.gov](https://bulkdata.uspto.gov/data/trademark/dailyxml/applications/)
+   - ✅ **No verification needed:** Public data, download anytime
+   - ✅ **Complete dataset:** Annual files contain all 10M+ trademarks from 1884-present
+   - ✅ **Build searchable database:** Import once, search millions of times instantly
+   - ✅ **Fast searches:** 2-5 second searches across entire database
+   - ✅ **No API limits:** No rate limiting or request quotas
+
+**For this MVP:**
+- Downloaded select files from USPTO's **Annual Trademark XML (TRTYRAP)** directory
+- Focused on recent and high-value trademark data
+- Parsed using SAX streaming parser (handles large files efficiently)
+- Imported **1,422,522 trademarks** to searchable PostgreSQL database
+
+**Data Source Details:**
+- **Official URL:** https://bulkdata.uspto.gov/ui/datasets/products/files/TRTYRAP
+- **Total Files Available:** 86 files (~10GB each when uncompressed)
+- **Files Used for MVP:** Select segments containing recent and historical applications
+- **Total Database Size:** 1.4M+ trademarks (sufficient for comprehensive conflict detection)
+
+**Future Roadmap:**
+- **Phase 1 (Current):** XML bulk data for comprehensive search
+- **Phase 2 (Future):** Add USPTO TSDR API integration for live status verification after obtaining API approval
+- **Phase 3 (Future):** Automated daily updates from USPTO daily XML feeds
 
 ---
 
 ## How XML Parsing Works
 
 ### USPTO Data Structure
+
 USPTO provides trademark data as XML files in two formats:
 - **Daily Files:** New/updated applications (~2-5K trademarks per day)
 - **Annual Backfiles:** Complete historical database (86 files, ~10M+ total marks)
 
-### Our Parsing Approach
+We use the **Annual Backfiles (TRTYRAP)** for comprehensive coverage.
 
-**Technology:** SAX (Simple API for XML) streaming parser
-- **Why SAX?** Files can be 500MB+, DOM parsing would crash with out-of-memory
-- **Streaming:** Processes XML incrementally, handles any file size
-- **Efficient:** Only extracts needed fields, skips irrelevant data
+### Parsing Technology
 
-**What We Extract:**
+**SAX (Simple API for XML) Streaming Parser:**
+- **Why SAX?** USPTO XML files can be 500MB+ each - DOM parsing would crash with out-of-memory errors
+- **Streaming approach:** Processes XML incrementally without loading entire file into memory
+- **Memory efficient:** Handles any file size with minimal RAM usage
+- **Fast processing:** Extracts only needed fields, skips irrelevant data
+
+### Data Extraction
+
+From each `<case-file>` in the XML, we extract:
+
 ```typescript
 {
-  serialNumber: "97676330",     // USPTO serial number
-  markText: "APPLE M2",          // Trademark text
-  ownerName: "Apple Inc.",       // Owner/applicant
-  status: "pending",             // live/dead/pending/abandoned
-  filingDate: "2023-10-15",     // When filed
-  registrationDate: null,        // When registered (if live)
-  niceClasses: [9]              // Industry classes
+  serialNumber: "97676330",      // USPTO serial number
+  markText: "APPLE M2",           // Trademark text
+  ownerName: "Apple Inc.",        // Owner/applicant
+  status: "pending",              // live/dead/pending/abandoned
+  filingDate: "2023-10-15",      // When filed
+  registrationDate: null,         // When registered (if live)
+  niceClasses: [9]               // Industry classification codes
 }
 ```
 
-**Processing Pipeline:**
-1. **Download** XML file from USPTO (ZIP format)
+### Processing Pipeline
+
+1. **Download** XML files from USPTO (ZIP format)
 2. **Unzip** to extract XML
 3. **Stream parse** with SAX - processes one `<case-file>` at a time
 4. **Extract** fields from nested XML structure
 5. **Validate** data (skip incomplete records)
 6. **Batch insert** to PostgreSQL (1000 records at a time for performance)
-7. **Index** for fast searching (text, soundex, classes)
+7. **Index creation** for fast searching (text, soundex, classes)
 
 ### Database Schema
 
@@ -244,26 +821,22 @@ CREATE INDEX idx_nice_classes ON trademarks USING GIN(nice_classes);
 CREATE INDEX idx_status ON trademarks(status);
 ```
 
-### Current Data Status
+### Current Dataset
 
 **This Version Includes:**
-- **1,422,522 USPTO trademarks** from select daily XML files
-- Date range: Mix of historical and recent applications
-- **Note:** Does NOT include ALL trademarks (full dataset is 10M+)
+- **1,422,522 USPTO trademarks** from select XML files
+- Mix of historical and recent applications
+- Coverage of major brands and common conflicts
+- **Note:** Does NOT include ALL 10M+ trademarks (can expand by importing more files)
 
-**Why Limited Data?**
-- **File Size:** Complete USPTO database is ~10GB (86 files)
-- **Demo Purpose:** 1.4M marks is sufficient to demonstrate functionality
-- **Scalable:** You can import additional files anytime using the scripts
-
-**Which Famous Marks Are Included?**
-- ✅ Apple M2, Apple M3, Apple Inc. variants - INCLUDED
-- ✅ Microsoft variants - INCLUDED
-- ❌ Exact "NIKE" word mark - NOT INCLUDED (different XML file)
-- ❌ Exact "APPLE" word mark - NOT INCLUDED (different XML file)
+**Which Famous Marks Are Included:**
+- ✅ Apple M2, Apple M3, Apple Inc. variants
+- ✅ Microsoft variants
+- ✅ Many Fortune 500 company trademarks
+- ❌ Some historical marks require importing additional annual backfiles
 
 **To Add More Marks:**
-Download specific USPTO annual backfiles (#01-#20 contain famous historical marks)
+Download and import additional USPTO annual backfiles from bulkdata.uspto.gov.
 
 ---
 
@@ -311,48 +884,17 @@ Generate PDF report from search results.
 
 ---
 
-## Project Structure
-
-```
-trademark-clearance/
-├── app/
-│   ├── api/
-│   │   ├── clearance/      # Main clearance endpoint
-│   │   ├── search/         # USPTO search endpoint
-│   │   ├── domain-check/   # Domain availability
-│   │   └── report/         # PDF generation
-│   ├── search/             # Search UI (multi-step form)
-│   └── page.tsx            # Landing page
-├── src/
-│   └── core/
-│       ├── repositories/   # TrademarkRepository (DB queries)
-│       └── services/       # Business logic
-├── lib/
-│   ├── similarity.ts       # Soundex, Levenshtein, scoring
-│   ├── domain-check.ts     # DNS lookups
-│   └── cache.ts            # Redis caching
-├── db/
-│   ├── schema.ts           # Drizzle schema
-│   └── index.ts            # Database connection
-├── scripts/
-│   ├── import-uspto-sax.ts      # USPTO XML import (streaming)
-│   └── batch-import-all.ts      # Batch processor
-└── downloads/              # Place downloaded USPTO XML files here
-```
-
----
-
 ## How It Works
 
-1. **User Input:** Mark text + Nice classes → Step-by-step form
-2. **Federal Search:** Repository queries database with multiple algorithms
-3. **Scoring:** Calculate similarity scores (exact, phonetic, fuzzy, visual)
-4. **Risk Assessment:** Assign risk levels based on scores + Nice class overlap
+1. **User Input:** User enters trademark text and selects Nice classes via step-by-step form
+2. **Federal Search:** Repository queries database using multiple similarity algorithms
+3. **Scoring:** Calculates similarity scores (exact, phonetic, visual, fuzzy)
+4. **Risk Assessment:** Multi-factor rule-based evaluation assigns risk levels
 5. **Domain Check:** Live DNS lookups via Google DNS
-6. **Social Check:** Generate check links for major platforms
-7. **Common Law:** Optional Google Custom Search API query
-8. **Alternatives:** If high risk, generate alternative suggestions
-9. **Report:** Render results as PDF with disclaimer
+6. **Social Check:** Generates verification links for major platforms
+7. **Common Law:** Optional Google Custom Search API query (or manual links)
+8. **Alternatives:** If high risk detected, generates alternative name suggestions
+9. **Report:** Renders comprehensive PDF with all findings and legal disclaimer
 
 ---
 
@@ -360,40 +902,69 @@ trademark-clearance/
 
 - **Solo Founders / Startups:** Quick self-serve clearance before paying attorney fees
 - **SaaS Builders:** Validate product names before launch
-- **Design Agencies:** Check client brand names early in process
-- **E-commerce Brands:** Clear product line names
+- **Design Agencies:** Check client brand names early in the design process
+- **E-commerce Brands:** Clear product line names before inventory investment
 - **Trademark Attorneys:** Preliminary research tool for junior associates
 
 ---
 
-## Limitations & Out of Scope (V1)
+## Limitations & Disclaimers
 
- **Not Legal Advice:** This tool provides information only. Consult a qualified attorney.
-**US Federal Only:** No state-level trademarks or international (EU/UK/Madrid) in V1
- **No Logo/Image Analysis:** Text-based marks only (visual similarity requires AI vision models)
-**No Auto-Filing:** Tool helps with research - you still file manually with USPTO
- **Not a Replacement for Attorney:** Catches 80-90% of issues; attorneys catch the nuanced 10-20%
+### What This Tool Does NOT Do
 
----
+❌ **Not Legal Advice:** This tool provides information only - consult a qualified trademark attorney for final clearance
 
-## Roadmap / Future Features
+❌ **US Federal Only:** Does not include state-level trademarks or international databases (EU/UK/Madrid) in V1
 
-- [ ] International trademark databases (EU, UK, Madrid Protocol)
-- [ ] State-level trademark searches (50 state databases)
-- [ ] Logo/image similarity analysis (computer vision AI)
-- [ ] Automated monitoring (alert when similar marks are filed)
-- [ ] Advanced linguistics (translations, foreign language matches)
-- [ ] Attorney marketplace integration
-- [ ] Bulk search (upload CSV of names)
+❌ **No Logo/Image Analysis:** Text-based marks only (visual similarity for images requires AI vision models)
+
+❌ **No Auto-Filing:** This tool helps with research - you must still file manually with USPTO
+
+❌ **Not a Complete Replacement for Attorney:** Catches 80-90% of obvious conflicts; attorneys analyze the nuanced 10-20%
+
+### Complex Issues Requiring Attorney Review
+
+This tool cannot assess:
+- Likelihood of confusion (subjective legal standard)
+- Descriptiveness or genericness issues
+- Common law rights from extensive unregistered use
+- Intent to use vs. actual use distinctions
+- Opposition or cancellation proceedings
+- Fair use defenses
+- Geographic limitations
+
+**Always consult a qualified trademark attorney for:**
+- Final clearance opinion before filing
+- Complex similarity assessments
+- International trademark strategy
+- Filing and prosecution
+- Enforcement and opposition proceedings
 
 ---
 
 ## Performance & Scalability
 
-- **Cache Layer:** Redis caching reduces database load by ~70%
+- **Search Speed:** 2-5 seconds across 1.4M+ trademarks
 - **Database Indexes:** Optimized for text search, soundex, and class filtering
 - **Concurrent Searches:** Handles multiple simultaneous users
-- **Data Size:** Currently 200K+ records; designed to scale to 10M+
+- **Scalability:** Designed to scale to 10M+ records (full USPTO database)
+- **Pagination:** Results limited to 10 per page for optimal UX
+
+---
+
+## Roadmap / Future Enhancements
+
+- [ ] USPTO TSDR API integration for live status verification (pending API approval)
+- [ ] Daily automated updates from USPTO daily XML feeds
+- [ ] International trademark databases (EUIPO, UKIPO, WIPO Madrid)
+- [ ] State-level trademark searches (50 state databases)
+- [ ] Logo/image similarity analysis (computer vision AI)
+- [ ] Automated monitoring (alerts when similar marks are filed)
+- [ ] Advanced linguistics (translations, foreign language phonetic matching)
+- [ ] Attorney marketplace integration
+- [ ] Bulk search (upload CSV of names)
+- [ ] Redis cache for faster efficient
+- [ ] Machine learning models for finding similarity  
 
 ---
 
@@ -401,9 +972,10 @@ trademark-clearance/
 
 Contributions welcome! Please:
 1. Fork the repository
-2. Create a feature branch
-3. Add tests for new features
-4. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ---
 
@@ -413,36 +985,20 @@ MIT License - See LICENSE file for details
 
 ---
 
-## Disclaimer
-
-**IMPORTANT:** This tool is for **informational purposes only** and does **NOT** constitute legal advice. Trademark law is complex and nuanced. This tool cannot assess:
-- Likelihood of confusion (subjective legal standard)
-- Descriptiveness or genericness issues
-- Common law rights (unregistered marks)
-- Intent to use vs. actual use distinctions
-- Opposition or cancellation proceedings
-
-**Always consult a qualified trademark attorney** for:
-- Final clearance opinion before filing
-- Complex similarity assessments
-- International trademark strategy
-- Filing and prosecution
-- Enforcement and oppositions
-
-This tool is designed to save you time and money on preliminary research, but it is **not a substitute** for professional legal counsel.
-
----
-
-
-
----
-
 ## Acknowledgments
 
-- **USPTO** for providing free bulk trademark data
+- **USPTO** for providing free bulk trademark data via bulkdata.uspto.gov
 - **Drizzle ORM** for excellent TypeScript-first database toolkit
-- **Next.js** team for the amazing framework
-- **Supabase** for generous free tier
+- **Next.js Team** for the amazing React framework
+- **Supabase** for generous PostgreSQL hosting
+- **CompuMark & Corsearch** for inspiring industry-standard risk assessment methodology
 
 ---
 
+## Support
+
+For questions or issues:
+- Open a GitHub Issue
+- Contact: [kds@ncsu.edu]
+
+---
