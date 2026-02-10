@@ -316,7 +316,7 @@ Before you begin, ensure you have:
 - **PostgreSQL database** - Choose one option:
   - **Option A (Recommended):** Supabase free tier - [Sign up here](https://supabase.com)
   - **Option B:** Local PostgreSQL installation
-- **(Optional)** Google API credentials for automated common law search (see [GOOGLE_API_SETUP.md](./GOOGLE_API_SETUP.md))
+- **(Optional)** Google API credentials for automated common law search
 
 ### Step 1: Clone the Repository
 
@@ -627,12 +627,6 @@ PORT=3001 npm run dev
 # Increase Node.js memory limit
 NODE_OPTIONS="--max-old-space-size=4096" npm run batch-import
 ```
-
-### Issue: Google API not working
-**Solution:**
-- Google API credentials are **optional**
-- Manual search links work without API
-- See [GOOGLE_API_SETUP.md](./GOOGLE_API_SETUP.md) for setup guide
 
 ---
 
