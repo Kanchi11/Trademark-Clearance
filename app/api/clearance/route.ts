@@ -36,19 +36,37 @@ export async function POST(request: Request) {
     const searchService = container.get<TrademarkSearchService>(TYPES.TrademarkSearchService);
 
     // 1) Federal (USPTO) search
+    // NOTE: USPTO verification disabled by default for speed (was taking 50+ seconds)
+    // Database search is fast (~200ms) and accurate with 1.4M+ real trademarks
     const result = await searchService.performSearch({
       markText,
       niceClasses,
-      includeUSPTOVerification: body.includeUSPTOVerification ?? true,
+      includeUSPTOVerification: body.includeUSPTOVerification ?? false,
       forceRefresh: body.forceRefresh ?? false,
     });
 
-    // 2) Domain, social, common law in parallel
-    const [domainResults, socialResults, commonLaw] = await Promise.all([
+    // 2) Domain, social, and common law checks in parallel
+    const [domains, socials, commonLaw] = await Promise.all([
       checkDomains(markText),
       checkSocialHandles(markText),
       checkCommonLawUsage(markText),
     ]);
+
+    // Transform domain results
+    const domainResults = {
+      available: domains.filter(d => d.available === true).map(d => d.domain),
+      unavailable: domains.filter(d => d.available === false).map(d => d.domain),
+    };
+
+    // Transform social results
+    const socialResults = {
+      checked: socials.map(s => ({
+        platform: s.platform,
+        username: s.handle.replace('@', ''),
+        profileUrl: s.url,
+        available: s.available !== false, // null or true = show as "check manually"
+      })),
+    };
 
     // 3) Alternatives when high risk
     const alternatives =

@@ -4,20 +4,22 @@ import { calculateRiskLevel, getRiskExplanation } from '../../../lib/risk-assess
 
 @injectable()
 export class RiskAssessmentEngine implements IRiskAssessmentEngine {
-  
+
   assessRisk(input: RiskAssessmentInput): RiskAssessmentResult {
-    const hasClassOverlap = input.queryClasses.some(qc => 
+    const hasClassOverlap = input.queryClasses.some(qc =>
       input.resultClasses.includes(qc)
     );
 
     const level = calculateRiskLevel({
       similarityScore: input.similarityScore,
+      similarityBreakdown: input.similarityBreakdown,
       sameClass: hasClassOverlap,
       status: input.status,
     });
 
     const explanation = getRiskExplanation({
       similarityScore: input.similarityScore,
+      similarityBreakdown: input.similarityBreakdown,
       sameClass: hasClassOverlap,
       status: input.status,
     });

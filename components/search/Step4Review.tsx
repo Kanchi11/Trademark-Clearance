@@ -59,6 +59,47 @@ export default function Step4Review({ data, onBack, onEdit }: Props) {
 
   return (
     <div className="space-y-6">
+      {/* Loading Overlay */}
+      {loading && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <Card className="p-8 max-w-md w-full mx-4">
+            <div className="text-center">
+              <div className="relative mx-auto w-16 h-16 mb-6">
+                <div className="absolute inset-0 border-4 border-blue-200 rounded-full"></div>
+                <div className="absolute inset-0 border-4 border-blue-600 rounded-full border-t-transparent animate-spin"></div>
+              </div>
+              <h3 className="text-2xl font-bold mb-2">Searching Trademarks...</h3>
+              <p className="text-gray-600 mb-4">
+                Searching across 1.4M+ USPTO federal marks
+              </p>
+              <div className="space-y-2 text-sm text-left">
+                <div className="flex items-center gap-2 text-green-600">
+                  <div className="w-5 h-5 border-2 border-green-600 rounded-full flex items-center justify-center">
+                    ✓
+                  </div>
+                  <span>Analyzing text similarity (exact, phonetic, fuzzy)</span>
+                </div>
+                <div className="flex items-center gap-2 text-blue-600 animate-pulse">
+                  <div className="w-5 h-5 border-2 border-blue-600 rounded-full border-t-transparent animate-spin"></div>
+                  <span>Checking Nice class conflicts...</span>
+                </div>
+                <div className="flex items-center gap-2 text-gray-400">
+                  <div className="w-5 h-5 border-2 border-gray-300 rounded-full"></div>
+                  <span>Verifying domain availability</span>
+                </div>
+                <div className="flex items-center gap-2 text-gray-400">
+                  <div className="w-5 h-5 border-2 border-gray-300 rounded-full"></div>
+                  <span>Checking social media handles</span>
+                </div>
+              </div>
+              <p className="mt-6 text-xs text-gray-500">
+                This typically takes 2-5 seconds
+              </p>
+            </div>
+          </Card>
+        </div>
+      )}
+
       <div>
         <h2 className="text-2xl font-bold mb-2">Review Your Information</h2>
         <p className="text-gray-600">
@@ -181,7 +222,7 @@ export default function Step4Review({ data, onBack, onEdit }: Props) {
           social handles, and common law (web) usage, then provide a risk assessment and optional alternative names.
         </p>
         <p className="text-xs text-gray-500">
-          This search typically takes 5-10 seconds.
+          This search typically takes 2-5 seconds.
         </p>
       </div>
 

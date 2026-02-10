@@ -23,6 +23,7 @@ export class TrademarkRepository implements ITrademarkRepository {
       eq(usptoTrademarks.markSoundex, soundexCode),
     ];
 
+    // Filter by Nice class overlap if classes provided
     const whereClause =
       classes && classes.length > 0
         ? and(
@@ -39,7 +40,7 @@ export class TrademarkRepository implements ITrademarkRepository {
 
     logger.debug(
       { markText, normalized, soundexCode, classes, count: rows.length },
-      'Repository searchByMark'
+      'Repository searchByMark completed'
     );
     return rows;
   }

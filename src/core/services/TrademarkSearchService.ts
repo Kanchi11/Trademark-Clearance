@@ -221,6 +221,7 @@ export class TrademarkSearchService {
       // Assess risk
       const riskAssessment = this.riskEngine.assessRisk({
         similarityScore: similarity.overallScore,
+        similarityBreakdown: similarity,
         queryClasses,
         resultClasses: result.niceClasses,
         status: result.status,
