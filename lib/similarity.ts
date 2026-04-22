@@ -2,60 +2,33 @@
 
 import { distance } from 'fastest-levenshtein';
 import stringSimilarity from 'string-similarity';
-
-const metaphone = require('metaphone');
+import {
+  calculatePhoneticSimilarity,
+  calculateVisualSimilarity,
+  calculateMetaphone,
+  calculateSoundex
+} from './phonetic-matching';
 
 /**
- * Soundex algorithm for phonetic matching
+ * Legacy Soundex algorithm for backward compatibility
  */
 export function soundex(str: string): string {
-  const a = str.toUpperCase().split('');
-  const firstLetter = a.shift();
-  
-  if (!firstLetter) return '';
-  
-  const codes: Record<string, string> = {
-    A: '', E: '', I: '', O: '', U: '', H: '', W: '', Y: '',
-    B: '1', F: '1', P: '1', V: '1',
-    C: '2', G: '2', J: '2', K: '2', Q: '2', S: '2', X: '2', Z: '2',
-    D: '3', T: '3',
-    L: '4',
-    M: '5', N: '5',
-    R: '6'
-  };
-  
-  const coded = a
-    .map(letter => codes[letter] || '')
-    .filter((code, index, array) => code !== '' && code !== array[index - 1]);
-  
-  return (firstLetter + coded.join('') + '000').slice(0, 4);
+  return calculateSoundex(str);
 }
 
 /**
  * Metaphone - better phonetic algorithm
  */
 export function getMetaphone(str: string): string {
-  try {
-    return metaphone(str) || str.substring(0, 4).toUpperCase();
-  } catch {
-    return str.substring(0, 4).toUpperCase();
-  }
+  return calculateMetaphone(str);
 }
 
 /**
- * Levenshtein distance (edit distance)
+ * Levenshtein distance (edit distance) - now enhanced with visual similarity
  */
 export function levenshteinSimilarity(mark1: string, mark2: string): number {
-  const str1 = mark1.toLowerCase();
-  const str2 = mark2.toLowerCase();
-  
-  const dist = distance(str1, str2);
-  const maxLength = Math.max(str1.length, str2.length);
-  
-  if (maxLength === 0) return 100;
-  
-  const similarity = ((maxLength - dist) / maxLength) * 100;
-  return Math.round(similarity);
+  // Use the enhanced visual similarity which includes character substitution detection
+  return calculateVisualSimilarity(mark1, mark2);
 }
 
 /**
@@ -66,13 +39,11 @@ export function exactMatch(mark1: string, mark2: string): boolean {
 }
 
 /**
- * Phonetic similarity using both Soundex and Metaphone
+ * Phonetic similarity using enhanced double metaphone + soundex
  */
 export function phoneticSimilarity(mark1: string, mark2: string): number {
-  const soundexMatch = soundex(mark1) === soundex(mark2);
-  const metaphoneMatch = getMetaphone(mark1) === getMetaphone(mark2);
-  
-  return (soundexMatch || metaphoneMatch) ? 100 : 0;
+  // Use the improved phonetic similarity from phonetic-matching.ts
+  return calculatePhoneticSimilarity(mark1, mark2);
 }
 
 /**
@@ -88,21 +59,22 @@ export function diceCoefficientSimilarity(mark1: string, mark2: string): number 
 
 /**
  * MAIN: Calculate overall similarity score
+ * Enhanced with better phonetic and visual matching
  */
 export function calculateSimilarity(mark1: string, mark2: string): number {
   const exact = exactMatch(mark1, mark2) ? 100 : 0;
-  const visual = levenshteinSimilarity(mark1, mark2);
-  const phonetic = phoneticSimilarity(mark1, mark2);
+  const visual = levenshteinSimilarity(mark1, mark2); // Now includes visual char substitution
+  const phonetic = phoneticSimilarity(mark1, mark2); // Now uses double-metaphone
   const fuzzy = diceCoefficientSimilarity(mark1, mark2);
-  
-  // Weighted combination
+
+  // Weighted combination (optimized weights)
   const score = (
-    exact * 0.40 +
-    visual * 0.30 +
-    phonetic * 0.20 +
-    fuzzy * 0.10
+    exact * 0.35 +      // Exact match (slightly reduced from 40%)
+    visual * 0.25 +     // Visual similarity including char substitutions
+    phonetic * 0.30 +   // Phonetic (increased from 20% - very important!)
+    fuzzy * 0.10        // Fuzzy/trigram matching
   );
-  
+
   return Math.round(score);
 }
 
@@ -125,14 +97,14 @@ export function calculateSimilarityWithBreakdown(
   const visual = levenshteinSimilarity(mark1, mark2);
   const phonetic = phoneticSimilarity(mark1, mark2);
   const fuzzy = diceCoefficientSimilarity(mark1, mark2);
-  
+
   const overallScore = Math.round(
-    exact * 0.40 +
-    visual * 0.30 +
-    phonetic * 0.20 +
+    exact * 0.35 +
+    visual * 0.25 +
+    phonetic * 0.30 +
     fuzzy * 0.10
   );
-  
+
   return {
     overallScore,
     exact,

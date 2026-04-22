@@ -56,3 +56,12 @@ export interface NiceClass {
     { number: 44, type: 'Services', description: 'Medical services; veterinary services; beauty care' },
     { number: 45, type: 'Services', description: 'Legal services; security services; personal social services' },
   ];
+
+/** State trademark / business name registries (where accessible) for manual common-law search */
+export const STATE_REGISTRY_LINKS: Array<{ platform: string; query: string; url: string }> = [
+  { platform: 'California Secretary of State (Business Search)', query: 'Business name search', url: 'https://bizfileonline.sos.ca.gov/search/business' },
+  { platform: 'New York Department of State', query: 'Corporation & business entity search', url: 'https://apps.dos.ny.gov/public/inquiry/' },
+  { platform: 'Texas Secretary of State (SOSDirect)', query: 'Business entity search', url: 'https://mycpa.cpa.state.tx.us/coa/coaSearch' },
+  { platform: 'Florida Division of Corporations', query: 'Business name search', url: 'https://dos.myflorida.com/sunbiz/search/' },
+  { platform: 'Illinois Secretary of State', query: 'Business search', url: 'https://www.ilsos.gov/corporatellc/' },
+];

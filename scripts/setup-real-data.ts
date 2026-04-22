@@ -43,7 +43,6 @@ if (!DATABASE_URL) {
     try {
       execSync(`psql $DATABASE_URL -c "DELETE FROM uspto_trademarks;"`, {
         stdio: 'pipe',
-        shell: true,
         env: { ...process.env, DATABASE_URL }
       });
     } catch (e) {
@@ -114,7 +113,8 @@ if (!DATABASE_URL) {
 
     process.exit(0);
   } catch (err) {
-    console.error('❌ Error:', err.message);
+    const errorMessage = err instanceof Error ? err.message : String(err);
+    console.error('❌ Error:', errorMessage);
     console.error();
     console.error('Troubleshooting:');
     console.error('  1. Verify DATABASE_URL in .env.local');

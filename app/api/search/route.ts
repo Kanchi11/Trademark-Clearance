@@ -1,52 +1,70 @@
 import '@/src/core/setup';
 import { NextResponse } from 'next/server';
-import { container } from '@/src/core/container';
-import { TYPES } from '@/src/core/types';
-import { TrademarkSearchService } from '@/src/core/services/TrademarkSearchService';
 import { logger } from '@/src/infrastructure/monitoring/logger';
 import { InvalidSearchQueryError } from '@/src/shared/errors';
+import { unifiedTrademarkSearch } from '@/lib/unified-trademark-search';
 
 export async function POST(request: Request) {
   const requestId = crypto.randomUUID();
 
   try {
-    // Parse request
+    // Parse and validate request
     const body = await request.json();
+    const markText = ((body.markText as string) || '').trim();
+
+    if (markText.length < 2 || markText.length > 200) {
+      return NextResponse.json(
+        { success: false, error: 'Mark text must be between 2 and 200 characters' },
+        { status: 400 }
+      );
+    }
+
+    // Validate and sanitize nice classes
+    const rawClasses = Array.isArray(body.niceClasses) ? body.niceClasses : [];
+    const niceClasses = rawClasses
+      .map((c: unknown) => Number(c))
+      .filter((c: number) => Number.isInteger(c) && c >= 1 && c <= 45);
+    if (niceClasses.length === 0) {
+      niceClasses.push(9, 35, 42);
+    }
 
     logger.info({
       requestId,
-      markText: body.markText,
-      niceClasses: body.niceClasses,
+      markText,
+      niceClasses,
     }, 'Search request received');
 
-    // Get service from DI container
-    const searchService = container.get<TrademarkSearchService>(
-      TYPES.TrademarkSearchService
-    );
-
-    // Execute search
-    const result = await searchService.performSearch({
-      markText: body.markText,
-      niceClasses: body.niceClasses || [9, 35, 42],
+    // Unified search: DB + Chroma RAG + CLIP in parallel
+    const unified = await unifiedTrademarkSearch({
+      markText,
+      niceClasses,
       includeUSPTOVerification: body.includeUSPTOVerification ?? true,
       forceRefresh: body.forceRefresh ?? false,
     });
 
     logger.info({
       requestId,
-      markText: body.markText,
-      duration: result.metadata.duration,
-      resultsCount: result.conflicts.length,
+      markText,
+      duration: unified.metadata.duration,
+      resultsCount: unified.conflicts.length,
+      dbResults: unified.metadata.dbResultCount,
+      ragTextResults: unified.metadata.ragTextCount,
+      clipLogoResults: unified.metadata.ragLogoCount,
     }, 'Search completed successfully');
 
     return NextResponse.json({
       success: true,
       requestId,
-      results: result.conflicts,
-      summary: result.summary,
-      query: result.query,
-      searchedAt: result.metadata.searchedAt,
-      sourcesChecked: result.metadata.sources,
+      results: unified.conflicts,
+      summary: unified.summary,
+      query: { markText, niceClasses },
+      searchedAt: unified.metadata.searchedAt,
+      sourcesChecked: unified.sourcesChecked,
+      pipeline: {
+        dbResults: unified.metadata.dbResultCount,
+        ragTextResults: unified.metadata.ragTextCount,
+        clipLogoResults: unified.metadata.ragLogoCount,
+      },
     });
 
   } catch (error) {
@@ -69,4 +87,4 @@ export async function POST(request: Request) {
   }
 }
 
-export const maxDuration = 30;
+export const maxDuration = 60;

@@ -36,6 +36,8 @@ export default function Step4Review({ data, onBack, onEdit }: Props) {
         body: JSON.stringify({
           markText: data.markText,
           niceClasses: data.niceClasses,
+          logoUrl: data.logoUrl, // Include logo for similarity check
+          description: data.description,
         }),
       });
 
@@ -59,40 +61,43 @@ export default function Step4Review({ data, onBack, onEdit }: Props) {
 
   return (
     <div className="space-y-6">
-      {/* Loading Overlay */}
+      {/* Full-Screen Loader */}
       {loading && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
           <Card className="p-8 max-w-md w-full mx-4">
-            <div className="text-center">
-              <div className="relative mx-auto w-16 h-16 mb-6">
+            <div className="text-center space-y-6">
+              <div className="relative mx-auto w-20 h-20">
                 <div className="absolute inset-0 border-4 border-blue-200 rounded-full"></div>
                 <div className="absolute inset-0 border-4 border-blue-600 rounded-full border-t-transparent animate-spin"></div>
               </div>
-              <h3 className="text-2xl font-bold mb-2">Searching Trademarks...</h3>
-              <p className="text-gray-600 mb-4">
-                Searching across 1.4M+ USPTO federal marks
-              </p>
-              <div className="space-y-2 text-sm text-left">
-                <div className="flex items-center gap-2 text-green-600">
-                  <div className="w-5 h-5 border-2 border-green-600 rounded-full flex items-center justify-center">
+
+              <div>
+                <h3 className="text-2xl font-bold mb-2">Searching Trademarks...</h3>
+                <p className="text-gray-600">Analyzing 405K+ USPTO federal marks</p>
+              </div>
+
+              <div className="space-y-3 text-sm text-left">
+                <div className="flex items-center gap-3 text-green-600">
+                  <div className="w-5 h-5 border-2 border-green-600 rounded-full flex items-center justify-center flex-shrink-0">
                     ✓
                   </div>
-                  <span>Analyzing text similarity (exact, phonetic, fuzzy)</span>
+                  <span>Text similarity (exact, phonetic, fuzzy)</span>
                 </div>
-                <div className="flex items-center gap-2 text-blue-600 animate-pulse">
-                  <div className="w-5 h-5 border-2 border-blue-600 rounded-full border-t-transparent animate-spin"></div>
+                <div className="flex items-center gap-3 text-blue-600 animate-pulse">
+                  <div className="w-5 h-5 border-2 border-blue-600 rounded-full border-t-transparent animate-spin flex-shrink-0"></div>
                   <span>Checking Nice class conflicts...</span>
                 </div>
-                <div className="flex items-center gap-2 text-gray-400">
-                  <div className="w-5 h-5 border-2 border-gray-300 rounded-full"></div>
-                  <span>Verifying domain availability</span>
+                <div className="flex items-center gap-3 text-gray-400">
+                  <div className="w-5 h-5 border-2 border-gray-300 rounded-full flex-shrink-0"></div>
+                  <span>Domain availability</span>
                 </div>
-                <div className="flex items-center gap-2 text-gray-400">
-                  <div className="w-5 h-5 border-2 border-gray-300 rounded-full"></div>
-                  <span>Checking social media handles</span>
+                <div className="flex items-center gap-3 text-gray-400">
+                  <div className="w-5 h-5 border-2 border-gray-300 rounded-full flex-shrink-0"></div>
+                  <span>Social media handles</span>
                 </div>
               </div>
-              <p className="mt-6 text-xs text-gray-500">
+
+              <p className="text-xs text-gray-500 mt-4">
                 This typically takes 2-5 seconds
               </p>
             </div>

@@ -2,7 +2,7 @@
 
 A comprehensive, self-service trademark clearance tool designed for founders, startups, and small businesses. Quickly assess trademark availability and conflict risk before filing - think of it as your "pre-attorney clearance search" that saves time and money.
 
-This is an MVP model that uses xml data downloaded from uspto gov database. The steps are mentioned please make sure to go throuh all the steps before getting started
+This is an MVP model that uses XML data downloaded from the USPTO database, enhanced with AI-powered logo similarity search using CLIP embeddings. The steps are mentioned — please make sure to go through all the steps before getting started.
 
 🚨 **This is not legal advice.** This tool provides information only. Always consult a qualified trademark attorney for final clearance before filing.
 
@@ -23,7 +23,7 @@ Want to run this project quickly? Here's the TL;DR:
 ## Features
 
 ### 🔍 **Comprehensive Federal Search**
-- **1.4+ Million Real USPTO Trademarks** - Imported from official USPTO bulk data XML files
+- **527,000+ Real USPTO Trademarks** (with logo URLs) stored in Neon serverless PostgreSQL — imported from official USPTO bulk data XML files
 - **Industry-Standard Multi-Factor Risk Assessment:**
   - Exact match detection
   - Phonetic matching (Soundex algorithm catches sound-alikes)
@@ -75,8 +75,15 @@ Want to run this project quickly? Here's the TL;DR:
   - Suffix variations (-Tech, -Pro, -Hub)
   - Creative combinations
 
+### 🤖 **AI-Powered Logo Similarity (CLIP)**
+- **Visual trademark conflict detection** — upload or provide a logo URL and find visually similar registered logos
+- **CLIP ViT-B/32 embeddings** (512-dimensional) for industry-standard image similarity
+- **33,000+ logo embeddings** currently seeded into ChromaDB (growing toward full dataset)
+- **Sentence Transformer embeddings** for text-based semantic trademark search
+- Unified search pipeline merges DB fuzzy/phonetic, RAG text, and CLIP logo results by serial number
+
 ### 🚀 **Performance Features**
-- **Fast Search:** 2-5 second searches across 1.4M+ marks
+- **Fast Search:** 2-5 second searches across 500K+ marks
 - **Pagination:** Results shown 10 per page for easy review
 - **Loading Animation:** Professional progress indicators during search
 - **Responsive Design:** Works on desktop, tablet, mobile
@@ -93,9 +100,9 @@ Want to run this project quickly? Here's the TL;DR:
 
 ### Backend
 - **Runtime:** Node.js 18+
-- **Database:** PostgreSQL (Supabase recommended)
+- **Database:** Neon serverless PostgreSQL (HTTP driver — no TCP cold-start issues)
 - **ORM:** Drizzle ORM - Type-safe database queries
-- **Data Volume:** 1,422,522 USPTO trademarks
+- **Data Volume:** 527,612 USPTO trademarks with logo URLs
 
 ### Algorithms & Libraries
 - **Soundex:** Phonetic matching (USPTO standard)
@@ -117,6 +124,31 @@ Want to run this project quickly? Here's the TL;DR:
 - **SAX Parser:** Streaming XML parser for large USPTO files
 - **Batch Processing:** Handles 500MB+ XML files efficiently
 
+### AI / Vector Search
+- **ChromaDB** (port 8001): Vector store for trademark text and logo embeddings
+  - `trademark-logos` collection: 33K+ CLIP logo embeddings (seeding in progress)
+  - `trademark-texts` collection: Sentence Transformer text embeddings
+- **ML microservice** (port 8000, FastAPI/Python):
+  - `/embed/image` → 512d CLIP `ViT-B/32` embeddings
+  - `/embed/text` → 768d `all-mpnet-base-v2` text embeddings
+  - `/llm/complete` → GPT-4o-mini summary (falls back to template without API key)
+- **RAG agent:** Retrieval over Chroma + LLM summary; enable with `RAG_AGENT_ENABLED=true`
+
+**One-command AI stack setup (Chroma + ML service):**
+```bash
+# Start Chroma + ML microservice (Docker)
+docker compose up -d
+
+# In .env.local set:
+RAG_AGENT_ENABLED=true
+AI_MICROSERVICE_URL=http://localhost:8000
+CHROMA_URL=http://127.0.0.1:8001   # use 127.0.0.1 not localhost on macOS
+
+# Seed logo embeddings into Chroma (runs from Neon DB checkpoint, resumable)
+npx tsx scripts/seed-logo-embeddings.ts
+```
+The seed script is checkpointed — safe to stop and restart anytime (`/tmp/seed-logo-checkpoint.json` saves progress).
+
 ---
 
 ## Design Decisions & Architecture
@@ -133,11 +165,12 @@ Want to run this project quickly? Here's the TL;DR:
 - **File-based routing:** Intuitive folder structure maps directly to URLs
 - **Future-proof:** App Router is the recommended approach going forward
 
-#### 2. **PostgreSQL + Drizzle ORM (Not MongoDB or Prisma)**
-**Decision:** Use PostgreSQL with Drizzle ORM instead of MongoDB or Prisma
+#### 2. **Neon Serverless PostgreSQL + Drizzle ORM**
+**Decision:** Migrated from Supabase to Neon serverless PostgreSQL with HTTP driver
 
 **Reasoning:**
 - **Relational data:** Trademarks have structured fields (serial number, classes, dates) - relational DB is perfect
+- **Neon HTTP driver:** `@neondatabase/serverless` avoids TCP cold-start timeouts that were causing the seed script to hang — responds in <2 seconds vs 30+ second TCP timeouts
 - **Array support:** PostgreSQL's `INTEGER[]` type handles Nice classes efficiently
 - **Full-text search:** Built-in text search capabilities with GIN indexes
 - **Drizzle benefits:**
@@ -580,6 +613,9 @@ npm run db:studio          # Open Drizzle Studio (visual database browser)
 npm run batch-import       # Import all XML files from downloads/ folder
 npm run data:import -- --url <url>  # Import single file from URL
 
+# AI / Chroma seeding
+npx tsx scripts/seed-logo-embeddings.ts        # Seed CLIP logo embeddings (resumable)
+
 # Testing (if you add tests)
 npm test                   # Run tests
 npm run lint               # Check code quality
@@ -771,9 +807,10 @@ trademark-clearance/
 - **Files Used for MVP:** Select segments containing recent and historical applications
 - **Total Database Size:** 1.4M+ trademarks (sufficient for comprehensive conflict detection)
 
-**Future Roadmap:**
-- **Phase 1 (Current):** XML bulk data for comprehensive search
-- **Phase 2 (Future):** Add USPTO TSDR API integration for live status verification after obtaining API approval
+**Roadmap:**
+- **Phase 1 (Complete):** XML bulk data import → PostgreSQL for comprehensive fuzzy/phonetic search
+- **Phase 2 (In Progress):** CLIP logo embeddings in ChromaDB for AI-powered visual trademark conflict detection (~33K of 527K seeded)
+- **Phase 3 (Planned):** Add USPTO TSDR API integration for live status verification after obtaining API approval
 
 
 ---
@@ -909,15 +946,16 @@ Generate PDF report from search results.
 
 ## How It Works
 
-1. **User Input:** User enters trademark text and selects Nice classes via step-by-step form
-2. **Federal Search:** Repository queries database using multiple similarity algorithms
-3. **Scoring:** Calculates similarity scores (exact, phonetic, visual, fuzzy)
-4. **Risk Assessment:** Multi-factor rule-based evaluation assigns risk levels
-5. **Domain Check:** Live DNS lookups via Google DNS
-6. **Social Check:** Generates verification links for major platforms
-7. **Common Law:** Optional Google Custom Search API query (or manual links)
-8. **Alternatives:** If high risk detected, generates alternative name suggestions
-9. **Report:** Renders comprehensive PDF with all findings and legal disclaimer
+1. **User Input:** User enters trademark text, optional logo upload, goods/services description, and Nice classes (or keyword search in step flow).
+2. **Cache:** Request is cached by mark + Nice classes + logo hash (Redis or in-memory via `lib/cache`). Repeated identical searches return cached result.
+3. **Federal Search:** `TrademarkSearchService` queries DB via `TrademarkRepository` (exact normalized, partial ILIKE, Soundex). Results are scored (exact, phonetic, visual, fuzzy) and risk-assessed (low/medium/high). Top results can be verified with USPTO TSDR (live status).
+4. **Domain Check:** Live DNS (Google DNS) for common TLDs; results split into likely available / likely taken with registrar check URLs.
+5. **Social Check:** Generates handle URLs for Twitter, Instagram, Facebook, LinkedIn, TikTok, YouTube for manual verification.
+6. **Common Law:** Bing or Google Custom Search (if configured) plus manual links (Google, state registries, business directories). State registry links (e.g. CA, NY, TX, FL, IL SOS) are included where accessible.
+7. **Logo (optional):** If user uploaded a logo, perceptual-hash comparison against precomputed USPTO logo hashes (when JSONL available); otherwise skipped without failing the request.
+8. **Alternatives:** When overall risk is high, suggests alternative names (prefix/suffix/variations); shown only when high risk.
+9. **Monitoring:** Logger and metrics (search count, duration, cache hits/misses, USPTO API calls) are recorded for observability.
+10. **Report:** Full results page and one-click PDF export with disclaimer: *"This is not legal advice; consult a trademark attorney for final clearance."*
 
 ---
 

@@ -1,4417 +1,725 @@
-[dotenv@17.2.3] injecting env (6) from .env.local -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
-Found 16 XML files to import:
-  - apc18840407-20241231-01.xml
-  - apc18840407-20241231-03.xml
-  - apc18840407-20241231-05.xml
-  - apc18840407-20241231-09.xml
-  - apc18840407-20241231-62.xml
-  - apc18840407-20241231-69.xml
-  - apc18840407-20241231-72.xml
-  - apc18840407-20241231-73.xml
-  - apc18840407-20241231-75.xml
-  - apc18840407-20241231-77.xml
-  - apc18840407-20241231-78.xml
-  - apc18840407-20241231-79.xml
-  - apc18840407-20241231-81.xml
-  - apc18840407-20241231-82.xml
-  - apc18840407-20241231-83.xml
-  - apc18840407-20241231-84.xml
+🚀 Starting USPTO Import with FIXED Status Mapping
+====================================================
+
+Database: NEW Supabase (psksupeawsueyqvtwudc)
+Files to import: 22 XML files
+Status mapping: FIXED ✅
+  - Codes 600-699 → abandoned
+  - Codes 1-15    → live
+  - All others    → pending
+
+⏰ Estimated time: 4-6 hours
+
+📂 Found 27 XML files to import
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[1/27] Importing: apc18840407-20241231-01.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
 
 
-[============================================================]
-[1/16] Processing: apc18840407-20241231-01.xml
-[============================================================]
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
 
-[dotenv@17.2.3] injecting env (0) from .env.local -- tip: 🔄 add secrets lifecycle management: https://dotenvx.com/ops
-Processing large file: /Users/kanchanads/Documents/Arcangel/trademark-clearance/downloads/apc18840407-20241231-01.xml
-Reading and parsing in chunks...
-File size: 534.94 MB
-Upserted final batch: 2 rows
-Completed. Total parsed: 2 case files
-Done. Total rows upserted: 2
+Node.js v23.11.0
 
-✅ Successfully imported apc18840407-20241231-01.xml
+❌ apc18840407-20241231-01.xml failed to import
+⚠️  Continuing with next file...
 
-[============================================================]
-[2/16] Processing: apc18840407-20241231-03.xml
-[============================================================]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2/27] Importing: apc18840407-20241231-03.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-[dotenv@17.2.3] injecting env (0) from .env.local -- tip: ✅ audit secrets and track compliance: https://dotenvx.com/ops
-Processing large file: /Users/kanchanads/Documents/Arcangel/trademark-clearance/downloads/apc18840407-20241231-03.xml
-Reading and parsing in chunks...
-File size: 534.85 MB
-Completed. Total parsed: 0 case files
-Done. Total rows upserted: 0
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
 
-✅ Successfully imported apc18840407-20241231-03.xml
 
-[============================================================]
-[3/16] Processing: apc18840407-20241231-05.xml
-[============================================================]
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
 
-[dotenv@17.2.3] injecting env (0) from .env.local -- tip: ⚙️  suppress all logs with { quiet: true }
-Processing large file: /Users/kanchanads/Documents/Arcangel/trademark-clearance/downloads/apc18840407-20241231-05.xml
-Reading and parsing in chunks...
-File size: 1106.14 MB
-Upserted batch: 500 rows
-Parsed 1000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 2000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 3000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 4000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 5000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 6000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 7000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 8000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 9000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 10000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 11000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 12000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 13000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 14000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 15000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 16000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 17000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 18000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 19000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 20000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 21000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 22000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 23000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 24000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 25000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 26000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 27000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 28000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 29000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 30000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 31000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 32000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 33000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 34000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 35000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 36000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 37000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 38000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 39000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 40000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 41000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 42000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 43000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 44000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 45000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 46000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 47000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 48000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 49000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 50000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 51000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 52000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 53000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 54000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 55000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 56000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 57000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 58000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 59000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 60000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 61000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 62000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 63000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 64000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 65000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 66000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 67000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 68000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 69000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 70000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 71000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 72000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 73000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 74000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 75000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 76000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 77000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 78000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 79000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 80000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 81000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 82000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 83000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 84000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 85000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 86000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 87000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 88000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 89000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 90000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 91000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 92000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 93000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 94000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 95000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 96000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 97000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 98000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 99000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 100000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 101000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 102000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 103000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 104000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 105000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 106000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 107000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 108000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 109000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 110000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 111000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 112000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 113000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 114000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 115000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 116000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 117000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 118000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 119000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 120000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 121000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 122000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 123000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 124000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 125000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 126000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 127000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 128000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 129000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 130000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 131000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 132000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 133000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 134000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 135000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 136000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 137000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Upserted final batch: 306 rows
-Completed. Total parsed: 137806 case files
-Done. Total rows upserted: 137806
+Node.js v23.11.0
 
-✅ Successfully imported apc18840407-20241231-05.xml
+❌ apc18840407-20241231-03.xml failed to import
+⚠️  Continuing with next file...
 
-[============================================================]
-[4/16] Processing: apc18840407-20241231-09.xml
-[============================================================]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[3/27] Importing: apc18840407-20241231-05.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-[dotenv@17.2.3] injecting env (0) from .env.local -- tip: 📡 add observability to secrets: https://dotenvx.com/ops
-Processing large file: /Users/kanchanads/Documents/Arcangel/trademark-clearance/downloads/apc18840407-20241231-09.xml
-Reading and parsing in chunks...
-File size: 1555.12 MB
-Upserted batch: 500 rows
-Parsed 1000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 2000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 3000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 4000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 5000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 6000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 7000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 8000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 9000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 10000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 11000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 12000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 13000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 14000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 15000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 16000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 17000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 18000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 19000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 20000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 21000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 22000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 23000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 24000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 25000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 26000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 27000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 28000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 29000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 30000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 31000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 32000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 33000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 34000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 35000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 36000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 37000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 38000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 39000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 40000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 41000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 42000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 43000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 44000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 45000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 46000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 47000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 48000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 49000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 50000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 51000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 52000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 53000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 54000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 55000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 56000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 57000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 58000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 59000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 60000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 61000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 62000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 63000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 64000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 65000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 66000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 67000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 68000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 69000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 70000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 71000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 72000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 73000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 74000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 75000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 76000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 77000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 78000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 79000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 80000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 81000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 82000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 83000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 84000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 85000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 86000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 87000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 88000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 89000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 90000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 91000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 92000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 93000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 94000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 95000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 96000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 97000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 98000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 99000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 100000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 101000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 102000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 103000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 104000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 105000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 106000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 107000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 108000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 109000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 110000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 111000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 112000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 113000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 114000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 115000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 116000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 117000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 118000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 119000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 120000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 121000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 122000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 123000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 124000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 125000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 126000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 127000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 128000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 129000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 130000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 131000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 132000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 133000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 134000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 135000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 136000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 137000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 138000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 139000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 140000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 141000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 142000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 143000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 144000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 145000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 146000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 147000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 148000 case files...
-Upserted batch: 500 rows
-Upserted final batch: 293 rows
-Completed. Total parsed: 148293 case files
-Done. Total rows upserted: 148293
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
 
-✅ Successfully imported apc18840407-20241231-09.xml
 
-[============================================================]
-[5/16] Processing: apc18840407-20241231-62.xml
-[============================================================]
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
 
-[dotenv@17.2.3] injecting env (0) from .env.local -- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops
-Processing large file: /Users/kanchanads/Documents/Arcangel/trademark-clearance/downloads/apc18840407-20241231-62.xml
-Reading and parsing in chunks...
-File size: 2090.21 MB
-Upserted batch: 500 rows
-Parsed 1000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 2000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 3000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 4000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 5000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 6000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 7000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 8000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 9000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 10000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 11000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 12000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 13000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 14000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 15000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 16000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 17000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 18000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 19000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 20000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 21000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 22000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 23000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 24000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 25000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 26000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 27000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 28000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 29000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 30000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 31000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 32000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 33000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 34000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 35000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 36000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 37000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 38000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 39000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 40000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 41000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 42000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 43000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 44000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 45000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 46000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 47000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 48000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 49000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 50000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 51000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 52000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 53000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 54000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 55000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 56000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 57000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 58000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 59000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 60000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 61000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 62000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 63000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 64000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 65000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 66000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 67000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 68000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 69000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 70000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 71000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 72000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 73000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 74000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 75000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 76000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 77000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 78000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 79000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 80000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 81000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 82000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 83000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 84000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 85000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 86000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 87000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 88000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 89000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 90000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 91000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 92000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 93000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 94000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 95000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 96000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 97000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 98000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 99000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 100000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 101000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 102000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 103000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 104000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 105000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 106000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 107000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 108000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 109000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 110000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 111000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 112000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 113000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 114000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 115000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 116000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 117000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 118000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 119000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 120000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 121000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 122000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 123000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 124000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 125000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 126000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 127000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 128000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 129000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 130000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 131000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 132000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 133000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 134000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 135000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 136000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 137000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 138000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 139000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 140000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 141000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 142000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 143000 case files...
-Upserted batch: 500 rows
-Upserted final batch: 90 rows
-Completed. Total parsed: 143090 case files
-Done. Total rows upserted: 143090
+Node.js v23.11.0
 
-✅ Successfully imported apc18840407-20241231-62.xml
+❌ apc18840407-20241231-05.xml failed to import
+⚠️  Continuing with next file...
 
-[============================================================]
-[6/16] Processing: apc18840407-20241231-69.xml
-[============================================================]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[4/27] Importing: apc18840407-20241231-09.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-[dotenv@17.2.3] injecting env (0) from .env.local -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
-Processing large file: /Users/kanchanads/Documents/Arcangel/trademark-clearance/downloads/apc18840407-20241231-69.xml
-Reading and parsing in chunks...
-File size: 1908.46 MB
-Upserted batch: 500 rows
-Parsed 1000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 2000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 3000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 4000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 5000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 6000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 7000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 8000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 9000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 10000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 11000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 12000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 13000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 14000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 15000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 16000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 17000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 18000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 19000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 20000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 21000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 22000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 23000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 24000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 25000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 26000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 27000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 28000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 29000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 30000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 31000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 32000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 33000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 34000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 35000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 36000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 37000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 38000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 39000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 40000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 41000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 42000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 43000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 44000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 45000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 46000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 47000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 48000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 49000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 50000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 51000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 52000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 53000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 54000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 55000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 56000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 57000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 58000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 59000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 60000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 61000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 62000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 63000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 64000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 65000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 66000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 67000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 68000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 69000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 70000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 71000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 72000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 73000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 74000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 75000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 76000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 77000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 78000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 79000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 80000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 81000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 82000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 83000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 84000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 85000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 86000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 87000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 88000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 89000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 90000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 91000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 92000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 93000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 94000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 95000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 96000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 97000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 98000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 99000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 100000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 101000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 102000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 103000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 104000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 105000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 106000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 107000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 108000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 109000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 110000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 111000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 112000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 113000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 114000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 115000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 116000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 117000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 118000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 119000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 120000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 121000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 122000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 123000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 124000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 125000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 126000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 127000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 128000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 129000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 130000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 131000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 132000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 133000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 134000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 135000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 136000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 137000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 138000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 139000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 140000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 141000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 142000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 143000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 144000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 145000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 146000 case files...
-Upserted batch: 500 rows
-Upserted final batch: 150 rows
-Completed. Total parsed: 146150 case files
-Done. Total rows upserted: 146150
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
 
-✅ Successfully imported apc18840407-20241231-69.xml
 
-[============================================================]
-[7/16] Processing: apc18840407-20241231-72.xml
-[============================================================]
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
 
-[dotenv@17.2.3] injecting env (0) from .env.local -- tip: 🔄 add secrets lifecycle management: https://dotenvx.com/ops
-Processing large file: /Users/kanchanads/Documents/Arcangel/trademark-clearance/downloads/apc18840407-20241231-72.xml
-Reading and parsing in chunks...
-File size: 1891.45 MB
-Upserted batch: 500 rows
-Parsed 1000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 2000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 3000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 4000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 5000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 6000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 7000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 8000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 9000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 10000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 11000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 12000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 13000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 14000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 15000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 16000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 17000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 18000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 19000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 20000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 21000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 22000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 23000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 24000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 25000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 26000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 27000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 28000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 29000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 30000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 31000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 32000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 33000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 34000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 35000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 36000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 37000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 38000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 39000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 40000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 41000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 42000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 43000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 44000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 45000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 46000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 47000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 48000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 49000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 50000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 51000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 52000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 53000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 54000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 55000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 56000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 57000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 58000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 59000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 60000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 61000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 62000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 63000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 64000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 65000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 66000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 67000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 68000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 69000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 70000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 71000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 72000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 73000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 74000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 75000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 76000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 77000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 78000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 79000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 80000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 81000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 82000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 83000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 84000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 85000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 86000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 87000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 88000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 89000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 90000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 91000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 92000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 93000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 94000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 95000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 96000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 97000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 98000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 99000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 100000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 101000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 102000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 103000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 104000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 105000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 106000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 107000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 108000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 109000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 110000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 111000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 112000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 113000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 114000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 115000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 116000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 117000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 118000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 119000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 120000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 121000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 122000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 123000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 124000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 125000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 126000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 127000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 128000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 129000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 130000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 131000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 132000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 133000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 134000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 135000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 136000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 137000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 138000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 139000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 140000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 141000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 142000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 143000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 144000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 145000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 146000 case files...
-Upserted batch: 500 rows
-Upserted final batch: 214 rows
-Completed. Total parsed: 146214 case files
-Done. Total rows upserted: 146214
+Node.js v23.11.0
 
-✅ Successfully imported apc18840407-20241231-72.xml
+❌ apc18840407-20241231-09.xml failed to import
+⚠️  Continuing with next file...
 
-[============================================================]
-[8/16] Processing: apc18840407-20241231-73.xml
-[============================================================]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[5/27] Importing: apc18840407-20241231-62.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-[dotenv@17.2.3] injecting env (0) from .env.local -- tip: ⚙️  override existing env vars with { override: true }
-Processing large file: /Users/kanchanads/Documents/Arcangel/trademark-clearance/downloads/apc18840407-20241231-73.xml
-Reading and parsing in chunks...
-File size: 1918.49 MB
-Upserted batch: 500 rows
-Parsed 1000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 2000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 3000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 4000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 5000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 6000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 7000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 8000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 9000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 10000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 11000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 12000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 13000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 14000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 15000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 16000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 17000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 18000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 19000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 20000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 21000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 22000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 23000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 24000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 25000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 26000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 27000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 28000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 29000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 30000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 31000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 32000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 33000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 34000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 35000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 36000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 37000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 38000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 39000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 40000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 41000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 42000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 43000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 44000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 45000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 46000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 47000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 48000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 49000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 50000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 51000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 52000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 53000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 54000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 55000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 56000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 57000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 58000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 59000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 60000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 61000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 62000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 63000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 64000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 65000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 66000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 67000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 68000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 69000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 70000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 71000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 72000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 73000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 74000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 75000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 76000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 77000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 78000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 79000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 80000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 81000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 82000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 83000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 84000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 85000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 86000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 87000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 88000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 89000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 90000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 91000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 92000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 93000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 94000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 95000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 96000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 97000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 98000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 99000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 100000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 101000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 102000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 103000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 104000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 105000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 106000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 107000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 108000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 109000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 110000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 111000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 112000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 113000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 114000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 115000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 116000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 117000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 118000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 119000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 120000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 121000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 122000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 123000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 124000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 125000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 126000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 127000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 128000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 129000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 130000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 131000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 132000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 133000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 134000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 135000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 136000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 137000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 138000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 139000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 140000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 141000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 142000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 143000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 144000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 145000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 146000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 147000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 148000 case files...
-Upserted batch: 500 rows
-Upserted final batch: 138 rows
-Completed. Total parsed: 148138 case files
-Done. Total rows upserted: 148138
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
 
-✅ Successfully imported apc18840407-20241231-73.xml
 
-[============================================================]
-[9/16] Processing: apc18840407-20241231-75.xml
-[============================================================]
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
 
-[dotenv@17.2.3] injecting env (0) from .env.local -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
-Processing large file: /Users/kanchanads/Documents/Arcangel/trademark-clearance/downloads/apc18840407-20241231-75.xml
-Reading and parsing in chunks...
-File size: 1912.61 MB
-Upserted batch: 500 rows
-Parsed 1000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 2000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 3000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 4000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 5000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 6000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 7000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 8000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 9000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 10000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 11000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 12000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 13000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 14000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 15000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 16000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 17000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 18000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 19000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 20000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 21000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 22000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 23000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 24000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 25000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 26000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 27000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 28000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 29000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 30000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 31000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 32000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 33000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 34000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 35000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 36000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 37000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 38000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 39000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 40000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 41000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 42000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 43000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 44000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 45000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 46000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 47000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 48000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 49000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 50000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 51000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 52000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 53000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 54000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 55000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 56000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 57000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 58000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 59000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 60000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 61000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 62000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 63000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 64000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 65000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 66000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 67000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 68000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 69000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 70000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 71000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 72000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 73000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 74000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 75000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 76000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 77000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 78000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 79000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 80000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 81000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 82000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 83000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 84000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 85000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 86000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 87000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 88000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 89000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 90000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 91000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 92000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 93000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 94000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 95000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 96000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 97000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 98000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 99000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 100000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 101000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 102000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 103000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 104000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 105000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 106000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 107000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 108000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 109000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 110000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 111000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 112000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 113000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 114000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 115000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 116000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 117000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 118000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 119000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 120000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 121000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 122000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 123000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 124000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 125000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 126000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 127000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 128000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 129000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 130000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 131000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 132000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 133000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 134000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 135000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 136000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 137000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 138000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 139000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 140000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 141000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 142000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 143000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 144000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 145000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 146000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 147000 case files...
-Upserted batch: 500 rows
-Upserted final batch: 23 rows
-Completed. Total parsed: 147023 case files
-Done. Total rows upserted: 147023
+Node.js v23.11.0
 
-✅ Successfully imported apc18840407-20241231-75.xml
+❌ apc18840407-20241231-62.xml failed to import
+⚠️  Continuing with next file...
 
-[============================================================]
-[10/16] Processing: apc18840407-20241231-77.xml
-[============================================================]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[6/27] Importing: apc18840407-20241231-69.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-[dotenv@17.2.3] injecting env (0) from .env.local -- tip: ⚙️  enable debug logging with { debug: true }
-Processing large file: /Users/kanchanads/Documents/Arcangel/trademark-clearance/downloads/apc18840407-20241231-77.xml
-Reading and parsing in chunks...
-File size: 1887.90 MB
-Upserted batch: 500 rows
-Parsed 1000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 2000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 3000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 4000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 5000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 6000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 7000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 8000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 9000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 10000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 11000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 12000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 13000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 14000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 15000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 16000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 17000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 18000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 19000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 20000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 21000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 22000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 23000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 24000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 25000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 26000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 27000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 28000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 29000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 30000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 31000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 32000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 33000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 34000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 35000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 36000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 37000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 38000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 39000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 40000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 41000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 42000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 43000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 44000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 45000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 46000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 47000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 48000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 49000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 50000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 51000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 52000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 53000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 54000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 55000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 56000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 57000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 58000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 59000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 60000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 61000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 62000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 63000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 64000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 65000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 66000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 67000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 68000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 69000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 70000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 71000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 72000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 73000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 74000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 75000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 76000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 77000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 78000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 79000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 80000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 81000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 82000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 83000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 84000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 85000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 86000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 87000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 88000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 89000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 90000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 91000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 92000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 93000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 94000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 95000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 96000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 97000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 98000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 99000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 100000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 101000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 102000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 103000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 104000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 105000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 106000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 107000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 108000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 109000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 110000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 111000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 112000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 113000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 114000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 115000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 116000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 117000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 118000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 119000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 120000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 121000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 122000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 123000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 124000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 125000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 126000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 127000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 128000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 129000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 130000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 131000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 132000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 133000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 134000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 135000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 136000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 137000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 138000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 139000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 140000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 141000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 142000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 143000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 144000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 145000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 146000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 147000 case files...
-Upserted batch: 500 rows
-Upserted final batch: 192 rows
-Completed. Total parsed: 147192 case files
-Done. Total rows upserted: 147192
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
 
-✅ Successfully imported apc18840407-20241231-77.xml
 
-[============================================================]
-[11/16] Processing: apc18840407-20241231-78.xml
-[============================================================]
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
 
-[dotenv@17.2.3] injecting env (0) from .env.local -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
-Processing large file: /Users/kanchanads/Documents/Arcangel/trademark-clearance/downloads/apc18840407-20241231-78.xml
-Reading and parsing in chunks...
-File size: 1875.69 MB
-Upserted batch: 500 rows
-Parsed 1000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 2000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 3000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 4000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 5000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 6000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 7000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 8000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 9000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 10000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 11000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 12000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 13000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 14000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 15000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 16000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 17000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 18000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 19000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 20000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 21000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 22000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 23000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 24000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 25000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 26000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 27000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 28000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 29000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 30000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 31000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 32000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 33000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 34000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 35000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 36000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 37000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 38000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 39000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 40000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 41000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 42000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 43000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 44000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 45000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 46000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 47000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 48000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 49000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 50000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 51000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 52000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 53000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 54000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 55000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 56000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 57000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 58000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 59000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 60000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 61000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 62000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 63000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 64000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 65000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 66000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 67000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 68000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 69000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 70000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 71000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 72000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 73000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 74000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 75000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 76000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 77000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 78000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 79000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 80000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 81000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 82000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 83000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 84000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 85000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 86000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 87000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 88000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 89000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 90000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 91000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 92000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 93000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 94000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 95000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 96000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 97000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 98000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 99000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 100000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 101000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 102000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 103000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 104000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 105000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 106000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 107000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 108000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 109000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 110000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 111000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 112000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 113000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 114000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 115000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 116000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 117000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 118000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 119000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 120000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 121000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 122000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 123000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 124000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 125000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 126000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 127000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 128000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 129000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 130000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 131000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 132000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 133000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 134000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 135000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 136000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 137000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 138000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 139000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 140000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 141000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 142000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 143000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 144000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 145000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 146000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 147000 case files...
-Upserted batch: 500 rows
-Upserted final batch: 114 rows
-Completed. Total parsed: 147114 case files
-Done. Total rows upserted: 147114
+Node.js v23.11.0
 
-✅ Successfully imported apc18840407-20241231-78.xml
+❌ apc18840407-20241231-69.xml failed to import
+⚠️  Continuing with next file...
 
-[============================================================]
-[12/16] Processing: apc18840407-20241231-79.xml
-[============================================================]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[7/27] Importing: apc18840407-20241231-72.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-[dotenv@17.2.3] injecting env (0) from .env.local -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
-Processing large file: /Users/kanchanads/Documents/Arcangel/trademark-clearance/downloads/apc18840407-20241231-79.xml
-Reading and parsing in chunks...
-File size: 1822.30 MB
-Upserted batch: 500 rows
-Parsed 1000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 2000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 3000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 4000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 5000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 6000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 7000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 8000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 9000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 10000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 11000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 12000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 13000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 14000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 15000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 16000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 17000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 18000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 19000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 20000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 21000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 22000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 23000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 24000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 25000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 26000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 27000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 28000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 29000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 30000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 31000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 32000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 33000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 34000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 35000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 36000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 37000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 38000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 39000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 40000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 41000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 42000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 43000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 44000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 45000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 46000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 47000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 48000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 49000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 50000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 51000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 52000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 53000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 54000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 55000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 56000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 57000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 58000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 59000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 60000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 61000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 62000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 63000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 64000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 65000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 66000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 67000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 68000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 69000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 70000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 71000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 72000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 73000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 74000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 75000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 76000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 77000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 78000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 79000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 80000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 81000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 82000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 83000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 84000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 85000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 86000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 87000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 88000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 89000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 90000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 91000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 92000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 93000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 94000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 95000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 96000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 97000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 98000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 99000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 100000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 101000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 102000 case files...
-Upserted batch: 500 rows
-Upserted batch: 500 rows
-Parsed 103000 cas
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ apc18840407-20241231-72.xml failed to import
+⚠️  Continuing with next file...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[8/27] Importing: apc18840407-20241231-73.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ apc18840407-20241231-73.xml failed to import
+⚠️  Continuing with next file...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[9/27] Importing: apc18840407-20241231-75
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ apc18840407-20241231-75 failed to import
+⚠️  Continuing with next file...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[10/27] Importing: 2.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ 2.xml failed to import
+⚠️  Continuing with next file...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[11/27] Importing: apc18840407-20241231-75.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ apc18840407-20241231-75.xml failed to import
+⚠️  Continuing with next file...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[12/27] Importing: apc18840407-20241231-77
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ apc18840407-20241231-77 failed to import
+⚠️  Continuing with next file...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[13/27] Importing: 2.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ 2.xml failed to import
+⚠️  Continuing with next file...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[14/27] Importing: apc18840407-20241231-77.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ apc18840407-20241231-77.xml failed to import
+⚠️  Continuing with next file...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[15/27] Importing: apc18840407-20241231-78.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ apc18840407-20241231-78.xml failed to import
+⚠️  Continuing with next file...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[16/27] Importing: apc18840407-20241231-79
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ apc18840407-20241231-79 failed to import
+⚠️  Continuing with next file...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[17/27] Importing: 2.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ 2.xml failed to import
+⚠️  Continuing with next file...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[18/27] Importing: apc18840407-20241231-79.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ apc18840407-20241231-79.xml failed to import
+⚠️  Continuing with next file...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19/27] Importing: apc18840407-20241231-81.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ apc18840407-20241231-81.xml failed to import
+⚠️  Continuing with next file...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[20/27] Importing: apc18840407-20241231-82.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ apc18840407-20241231-82.xml failed to import
+⚠️  Continuing with next file...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[21/27] Importing: apc18840407-20241231-83.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ apc18840407-20241231-83.xml failed to import
+⚠️  Continuing with next file...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[22/27] Importing: apc18840407-20241231-84
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ apc18840407-20241231-84 failed to import
+⚠️  Continuing with next file...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[23/27] Importing: 2.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ 2.xml failed to import
+⚠️  Continuing with next file...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[24/27] Importing: apc18840407-20241231-84.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ apc18840407-20241231-84.xml failed to import
+⚠️  Continuing with next file...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[25/27] Importing: apc18840407-20241231-86
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ apc18840407-20241231-86 failed to import
+⚠️  Continuing with next file...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[26/27] Importing: 2.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ 2.xml failed to import
+⚠️  Continuing with next file...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[27/27] Importing: apc18840407-20251231-89.xml
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7
+  throw new Error('DATABASE_URL is not set');
+        ^
+
+
+Error: DATABASE_URL is not set
+    at postgres (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:7:9)
+    at Object.<anonymous> (/Users/kanchanads/Documents/Arcangel/trademark-clearance/db/index.ts:19:50)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object.transformer (/Users/kanchanads/Documents/Arcangel/trademark-clearance/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+
+Node.js v23.11.0
+
+❌ apc18840407-20251231-89.xml failed to import
+⚠️  Continuing with next file...
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎉 Import Complete!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next steps:
+  1. Verify status distribution with: npx tsx scripts/check-status-distribution.ts
+  2. Test search functionality
+

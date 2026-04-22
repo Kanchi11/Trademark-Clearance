@@ -44,3 +44,34 @@ next-env.d.ts
 
 # USPTO XML files (too large for git)
 downloads/
+
+# Python virtual environments
+venv/
+chroma-venv/
+ai-microservice/venv/
+ai-microservice/venv-py310/
+ai-microservice/__pycache__/
+ml-service/
+
+# ChromaDB local data (too large, runtime data)
+chroma/
+chroma_data/
+
+# Large log files
+*.log
+import-complete-progress.log
+import-full-progress.log
+import-progress.log
+full-import.log
+logo-hash-*.log
+logo-hash-population.log
+
+# Large data exports
+*.jsonl
+sql_updates/
+
+# Backup files
+*.backup
+
+# AI microservice logs
+ai-microservice/embed.log

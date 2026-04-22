@@ -1,0 +1,39 @@
+# Chroma + ML microservice for RAG pipeline.
+# Run: docker compose up -d
+# Then: CHROMA_URL=http://localhost:8001 AI_MICROSERVICE_URL=http://localhost:8000 in .env
+
+services:
+  chroma:
+    image: chromadb/chroma:latest
+    ports:
+      - "8001:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    environment:
+      - IS_PERSISTENT=TRUE
+      - ANONYMIZED_TELEMETRY=FALSE
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v2/heartbeat"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  ml-service:
+    build:
+      context: ./ml-service
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - TEXT_MODEL=sentence-transformers/all-mpnet-base-v2
+      - CLIP_MODEL=ViT-B-32
+      - CLIP_PRETRAINED=openai
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+    # Optional: use host network for Chroma from host
+    # depends_on:
+    #   chroma:
+    #     condition: service_healthy
+
+volumes:
+  chroma_data: {}

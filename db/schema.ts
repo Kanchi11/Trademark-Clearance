@@ -22,6 +22,7 @@ import {
     markText: text('mark_text').notNull(),
     markTextNormalized: text('mark_text_normalized').notNull(),
     markSoundex: text('mark_soundex'),
+    markMetaphone: text('mark_metaphone'), // Double metaphone for better phonetic matching
     status: statusEnum('status').notNull(),
     filingDate: date('filing_date'),
     registrationDate: date('registration_date'),
@@ -29,6 +30,10 @@ import {
     niceClasses: integer('nice_classes').array().notNull(),
     goodsServices: text('goods_services'),
     usptoUrl: text('uspto_url'),
+    logoUrl: text('logo_url'),
+    logoHash: text('logo_hash'), // 64-bit perceptual hash for efficient similarity search
+    logoColorHistogram: text('logo_color_histogram'), // Color distribution for fast color matching
+    logoAspectRatio: text('logo_aspect_ratio'), // width/height ratio (stored as "w:h")
     createdAt: timestamp('created_at').defaultNow(),
   });
   

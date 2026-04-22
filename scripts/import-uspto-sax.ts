@@ -7,25 +7,36 @@ import { config } from 'dotenv';
 import { resolve } from 'path';
 config({ path: resolve(process.cwd(), '.env.local') });
 
-import { db } from '../db';
-import { usptoTrademarks } from '../db/schema';
+import { db } from '@/db';
+import { usptoTrademarks } from '@/db/schema';
 import { sql } from 'drizzle-orm';
-import { soundex } from '../lib/similarity';
+import { soundex } from '@/lib/similarity';
 import { createReadStream } from 'fs';
 import * as sax from 'sax';
+import { doubleMetaphone } from 'double-metaphone';
 
 const TSDR_URL = 'https://tsdr.uspto.gov/#caseNumber';
-const BATCH_SIZE = 500;
+const BATCH_SIZE = 50; // Reduced to 50 to avoid Supabase connection pool exhaustion
 
 type StatusEnum = 'live' | 'dead' | 'pending' | 'abandoned';
 
-function mapStatus(actionKey: string | undefined, statusText: string | undefined): StatusEnum {
-  const key = String(actionKey || '').toUpperCase();
-  const text = String(statusText || '').toLowerCase();
-  if (/^6\d{2}$/.test(key) || text.includes('abandon') || text.includes('cancel')) return 'abandoned';
-  if (/^1[0-5]$/.test(key) || text.includes('register') || text.includes('principal')) return 'live';
-  if (key === 'NA' || text.includes('new application') || text.includes('pending')) return 'pending';
-  if (text.includes('dead')) return 'dead';
+function mapStatus(statusCode: string | undefined, actionKey: string | undefined): StatusEnum {
+  const code = String(statusCode || '').toUpperCase();
+  const action = String(actionKey || '').toUpperCase();
+
+  // Check status-code first (most reliable)
+  // 600-699 = Abandoned/Cancelled/Expired
+  if (/^6\d{2}$/.test(code)) return 'abandoned';
+
+  // 1-15 = Registered on principal/supplemental register (LIVE)
+  if (/^[1-9]$/.test(code) || /^1[0-5]$/.test(code)) return 'live';
+
+  // Check action-key as fallback
+  if (/^6\d{2}$/.test(action)) return 'abandoned';
+  if (/^1[0-5]$/.test(action)) return 'live';
+
+  // If we have a registration-date field populated, it's likely live or dead (not pending)
+  // But without clear status code, default to pending
   return 'pending';
 }
 
@@ -49,7 +60,8 @@ interface CaseFileData {
   actionKey?: string;
   ownerName?: string;
   classifications?: Array<{ code?: string }>;
-  goodsServices?: string;
+  goodsServices?: string;  // ✅ Will be populated from case-file-statements
+  logoUrl?: string;
 }
 
 async function processWithSAX(filePath: string): Promise<number> {
@@ -70,6 +82,7 @@ async function processWithSAX(filePath: string): Promise<number> {
       markText: string;
       markTextNormalized: string;
       markSoundex: string | null;
+      markMetaphone: string | null;  // ✅ ADD metaphone
       status: StatusEnum;
       filingDate: string | null;
       registrationDate: string | null;
@@ -77,6 +90,7 @@ async function processWithSAX(filePath: string): Promise<number> {
       niceClasses: number[];
       goodsServices: string | null;
       usptoUrl: string;
+      logoUrl: string | null;
     }> = [];
 
     const flushBatch = async () => {
@@ -89,6 +103,7 @@ async function processWithSAX(filePath: string): Promise<number> {
             markText: sql`excluded.mark_text`,
             markTextNormalized: sql`excluded.mark_text_normalized`,
             markSoundex: sql`excluded.mark_soundex`,
+            markMetaphone: sql`excluded.mark_metaphone`,  // ✅ ADD metaphone
             status: sql`excluded.status`,
             filingDate: sql`excluded.filing_date`,
             registrationDate: sql`excluded.registration_date`,
@@ -96,6 +111,7 @@ async function processWithSAX(filePath: string): Promise<number> {
             niceClasses: sql`excluded.nice_classes`,
             goodsServices: sql`excluded.goods_services`,
             usptoUrl: sql`excluded.uspto_url`,
+            logoUrl: sql`excluded.logo_url`,
           },
         });
 
@@ -154,6 +170,14 @@ async function processWithSAX(filePath: string): Promise<number> {
         currentCaseFile.classifications = currentCaseFile.classifications || [];
         currentCaseFile.classifications.push({ ...currentClassification });
         currentClassification = {};
+      } else if (tagName === 'text' && path.includes('case-file-statements/case-file-statement')) {
+        // ✅ Capture goods/services description from case-file-statements
+        // Append multiple statement texts (some trademarks have multiple classes)
+        if (value) {
+          currentCaseFile.goodsServices = currentCaseFile.goodsServices
+            ? currentCaseFile.goodsServices + '; ' + value
+            : value;
+        }
       }
 
       if (tagName === 'case-file') {
@@ -165,6 +189,8 @@ async function processWithSAX(filePath: string): Promise<number> {
           const mark = currentCaseFile.mark.slice(0, 500);
           const normalized = mark.toLowerCase().replace(/\s+/g, '').slice(0, 500);
           const markSoundex = soundex(mark);
+          const markMetaphoneResult = doubleMetaphone(mark);  // ✅ ADD metaphone
+          const markMetaphone = markMetaphoneResult ? markMetaphoneResult[0] : null;  // Primary metaphone code
 
           const niceClasses: number[] = [];
           if (currentCaseFile.classifications) {
@@ -178,26 +204,26 @@ async function processWithSAX(filePath: string): Promise<number> {
             }
           }
 
-          const status = mapStatus(currentCaseFile.actionKey, currentCaseFile.status);
+          const status = mapStatus(currentCaseFile.status, currentCaseFile.actionKey);
 
           batch.push({
             serialNumber: currentCaseFile.serialNumber,
             markText: mark,
             markTextNormalized: normalized,
             markSoundex: markSoundex || null,
+            markMetaphone: markMetaphone || null,  // ✅ ADD metaphone
             status,
             filingDate: normalizeDate(currentCaseFile.filingDate || ''),
             registrationDate: normalizeDate(currentCaseFile.registrationDate || ''),
             ownerName: currentCaseFile.ownerName?.slice(0, 500) || null,
             niceClasses: niceClasses.length > 0 ? niceClasses : [0],
-            goodsServices: currentCaseFile.goodsServices?.slice(0, 2000) || null,
+            goodsServices: currentCaseFile.goodsServices?.slice(0, 2000) || null,  // ✅ NOW POPULATED
             usptoUrl: `${TSDR_URL}=${currentCaseFile.serialNumber}&caseSearchType=US_APPLICATION&caseType=DEFAULT`,
+            logoUrl: `https://tsdr.uspto.gov/img/${currentCaseFile.serialNumber}/large`,
           });
 
           if (batch.length >= BATCH_SIZE) {
-            parser.pause();
             await flushBatch();
-            parser.resume();
           }
         }
 

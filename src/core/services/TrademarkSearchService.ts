@@ -42,6 +42,10 @@ export interface TrademarkConflict {
   verifiedAt?: string;
   /** Link to USPTO TSDR for this application (evidence) */
   usptoUrl?: string;
+  /** Logo URL from USPTO if trademark has a logo */
+  logoUrl?: string | null;
+  /** How many USPTO registrations share this mark text (set during deduplication) */
+  registrationCount?: number;
 }
 
 export interface SearchSummary {
@@ -241,6 +245,7 @@ export class TrademarkSearchService {
         riskExplanation: riskAssessment.explanation,
         verified: false,
         usptoUrl: `${TSDR_CASE_URL}=${result.serialNumber}&caseSearchType=US_APPLICATION&caseType=DEFAULT`,
+        logoUrl: result.logoUrl || null,
       };
     });
   }

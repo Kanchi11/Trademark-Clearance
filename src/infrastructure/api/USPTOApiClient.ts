@@ -62,30 +62,29 @@ export class USPTOApiClient implements IUSPTOApiClient {
       serialNumbers,
     }, 'Starting batch USPTO verification');
 
-    for (let i = 0; i < serialNumbers.length; i++) {
-      const serialNumber = serialNumbers[i];
-      
-      try {
-        const result = await this.verifyBySerialNumber(serialNumber);
-        results.set(serialNumber, result);
-
-        // Rate limiting - be nice to USPTO servers
-        if (i < serialNumbers.length - 1) {
-          await this.sleep(this.RATE_LIMIT_DELAY);
-        }
-
-      } catch (error) {
-        logger.error({
-          err: error,
-          serialNumber,
-        }, 'Batch verification error');
-
-        results.set(serialNumber, {
-          serialNumber,
-          verified: false,
-          verifiedAt: new Date().toISOString(),
-          error: error instanceof Error ? error.message : 'Unknown error',
-        });
+    // Run verifications in parallel (max 3 concurrent) to avoid slow sequential calls
+    const CONCURRENCY = 3;
+    for (let i = 0; i < serialNumbers.length; i += CONCURRENCY) {
+      const batch = serialNumbers.slice(i, i + CONCURRENCY);
+      await Promise.all(
+        batch.map(async (serialNumber) => {
+          try {
+            const result = await this.verifyBySerialNumber(serialNumber);
+            results.set(serialNumber, result);
+          } catch (error) {
+            logger.error({ err: error, serialNumber }, 'Batch verification error');
+            results.set(serialNumber, {
+              serialNumber,
+              verified: false,
+              verifiedAt: new Date().toISOString(),
+              error: error instanceof Error ? error.message : 'Unknown error',
+            });
+          }
+        })
+      );
+      // Small delay between batches to be respectful to USPTO servers
+      if (i + CONCURRENCY < serialNumbers.length) {
+        await this.sleep(500);
       }
     }
 

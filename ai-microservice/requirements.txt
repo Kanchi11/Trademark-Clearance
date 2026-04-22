@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+sentence-transformers
+open_clip_torch
+pillow
+torch
+transformers
+cairosvg
+openai
+# Optional: for Ollama integration
+# ollama-client
